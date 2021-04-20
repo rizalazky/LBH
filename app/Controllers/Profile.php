@@ -24,7 +24,7 @@ class Profile extends BaseController
         $getFrom = $this->netsuite_models->getCustomer($noHp);
         $idRec=$getFrom->internalid;
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-        $getHistoryReward->hadiah;
+        // $getHistoryReward->hadiah;
         // die;
         // var_dump($getHistoryReward);die;
         $data['history_reward']=(array) $getHistoryReward;
