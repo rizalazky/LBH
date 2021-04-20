@@ -1,0 +1,271 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@font-face {
+  font-family: "Frankfurter";
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot");
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter")
+      format("svg");
+}
+@font-face {
+  font-family: "VAG Rounded";
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot");
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.svg#VAG Rounded")
+      format("svg");
+}
+
+/* @extend display-flex; */
+display-flex,
+.display-flex,
+.display-flex-center {
+  display: flex;
+  display: -webkit-flex;
+}
+
+/* @extend list-type-ulli; */
+list-type-ulli {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Montserrat-300 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/montserrat/Montserrat-Light.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/montserrat/Montserrat-Regular.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/montserrat/Montserrat-Italic.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/montserrat/Montserrat-Medium.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/montserrat/Montserrat-SemiBold.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/montserrat/Montserrat-Bold.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/montserrat/Montserrat-BoldItalic.ttf");
+  /* IE9 Compat Modes */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.eot")
+      format("embedded-opentype"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.container_profile_user{
+  /* background-color: #E7218C;
+   */
+   background-image: url('../img/banner.jpeg');
+   background-size: cover;
+  padding-top: 20px;
+}
+.profile_user{
+    display: flex;
+    /* min-height: 99vh; */
+    flex-wrap: wrap;
+    padding: 0;
+    padding:50px;
+}
+
+.header{
+  display: flex;
+  /* margin: 20px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title{
+  /* color: ; */
+  color: #db2082;
+  margin-bottom: 14px;
+  font-family: "Frankfurter";
+}
+
+.logo{
+  background-size:cover ;
+}
+
+.profile_user_left{
+    flex: 1;
+    /* padding:50px 100px 50px 100px; */
+    padding: 5% 5%;
+    background-color: white;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.profile_user_right{
+  padding: 20px;
+  /* width: 20%; */
+  text-align: center;
+  background-color: white;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.form-group{
+  margin: 10px;
+
+}
+
+
+.form-input {
+  width: 100%;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 15px 20px;
+  color: #489685;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  /* color: #222; */
+}
+
+label{
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  color: #db2082;
+  font-family: "VAG Rounded";
+  font-size: 18px;
+  /* text-transform: uppercase; */
+  text-align: left;
+  /* width: 20%; */
+  /* margin-bottom: 40px; */
+}
+
+
+.btn-group{
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.btn-profile{
+  margin-right: 20px;
+  padding: 10px 25px;    /* color: ; */
+  background-color:#db2082 ;
+  color: #FFFF;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  /* margin-bottom: 14px; */
+  font-family: "Frankfurter";
+
+}
+
+.navigation{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.history_menu{
+
+}
+
+.history_item{
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.history_date{
+  box-sizing: border-box;
+  width: 95%;
+  background-color: #db2082;
+  color: #FFFF;
+  outline: none;
+  border: none;
+  padding: 4px;
+  margin: 5px;
+}
+
+.history_desc{
+  display: none;
+}
+
+.history_desc li{
+  list-style: none;
+}
+
+.history_desc li strong{
+  color: #db2082;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .navigation{
+    top: 150px;
+  }
+}

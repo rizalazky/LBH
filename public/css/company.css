@@ -1,0 +1,799 @@
+@import url(//db.onlinewebfonts.com/c/d3eba8ec8662173409b7229addecbf7a?family=Frankfurter);
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@font-face {
+  font-family: "Frankfurter";
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot");
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter")
+      format("svg");
+}
+@font-face {
+  font-family: "VAG Rounded";
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot");
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.svg#VAG Rounded")
+      format("svg");
+}
+body {
+  left: 0;
+}
+* #header-img {
+  top: 0;
+  right: 0;
+  left: -2px;
+  height: auto;
+  position: absolute;
+  max-width: 100%;
+}
+.openclose {
+  font-family: "Frankfurter";
+  color: #d51479;
+  position: relative;
+  top: 87%;
+  left: 200%;
+  width: 400px;
+  height: 220px;
+  margin-top: -250px; /* Half the height */
+  margin-left: -250px;
+}
+#logo-banner {
+  position: relative;
+  top: 70%;
+  left: 57.1%;
+  width: 300px;
+  height: 220px;
+  margin-top: -250px; /* Half the height */
+  margin-left: -250px;
+  background-size: cover;
+  background-image: url('/img/banner.jpeg') no-repeat center center;
+
+}
+#logo-text {
+  position: relative;
+  text-align: center;
+  font-family: "Frankfurter";
+  color: #d51479;
+  font-size: 3ch;
+
+  top: 120%;
+  left: 10.1%;
+  width: 800px;
+  height: 100px;
+  margin-top: -250px; /* Half the height */
+  margin-left: -250px;
+}
+
+#content {
+  position: absolute;
+  top: 120%;
+  left: 46%;
+  width: 300px;
+  height: 220px;
+  margin-top: -250px; /* Half the height */
+  margin-left: -250px;
+}
+iframe {
+  position: absolute;
+  display: block;
+  border-style: none;
+  top: 95%;
+  left: 36%;
+}
+#footer-background {
+  position: absolute;
+  background-color: rgba(236, 230, 230, 0.76);
+  width: 100%;
+  height: 90%;
+  top: 140%;
+}
+
+#temukan {
+  text-align: center;
+  font-family: "Frankfurter";
+  font-size: 5ch;
+  color: #d51479;
+}
+.jalan {
+  position: absolute;
+  font-family: "Frankfurter";
+  left: 20%;
+  font-size: 3ch;
+  line-height: 200%;
+  color: #489685;
+  text-decoration-skip-ink: none;
+}
+.jalan2 {
+  position: absolute;
+  font-family: "Frankfurter";
+  left: 27%;
+  font-size: 3ch;
+  line-height: 200%;
+  color: #489685;
+  text-decoration-skip-ink: none;
+}
+.jalan01 {
+  position: absolute;
+  font-family: "Frankfurter";
+  left: 56%;
+  top: 32%;
+  font-size: 3ch;
+  line-height: 200%;
+  color: #489685;
+  text-decoration-skip-ink: none;
+}
+.jalan02 {
+  position: absolute;
+  display: block;
+  font-family: "Frankfurter";
+  left: 56%;
+  top: 38%;
+  font-size: 3ch;
+  line-height: 200%;
+  color: #489685;
+  text-decoration-skip-ink: none;
+}
+.horizontal-kontak {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+.tokopedia {
+  position: absolute;
+  top: 70%;
+  left: 20%;
+}
+.whatsapp {
+  position: absolute;
+  top: 60%;
+  /* width: 1000px; */
+  left: 43%;
+}
+.shopee {
+  position: absolute;
+  top: 70%;
+  /* width: 1000px; */
+  left: 43%;
+}
+.instagram {
+  position: absolute;
+  top: 60%;
+  /* width: 1000px; */
+  left: 67%;
+}
+.facebook {
+  position: absolute;
+  top: 70%;
+  /* width: 1000px; */
+  left: 67%;
+}
+
+.button {
+  position: relative;
+  background-color: #d51479;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  top: 60%;
+  left: 46%;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 900px) {
+  iframe {
+    position: absolute;
+    display: block;
+    border-style: none;
+    top: 105%;
+    left: 36%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 66%;
+    top: 24%;
+  }
+  .jalan01 {
+    position: absolute;
+    font-family: "Frankfurter";
+    left: 56%;
+    top: 25%;
+  }
+  .jalan02 {
+    position: absolute;
+    display: block;
+    font-family: "Frankfurter";
+    left: 56%;
+    top: 30%;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1600px) {
+  iframe {
+    position: absolute;
+    display: block;
+    border-style: none;
+    top: 90%;
+    width: 40%;
+    height: 40%;
+    left: 32%;
+  }
+  .jalan {
+    position: absolute;
+    left: 21%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 66%;
+    top: 19%;
+  }
+  .jalan01 {
+    position: absolute;
+    font-family: "Frankfurter";
+    left: 59%;
+    top: 19%;
+  }
+  .jalan02 {
+    position: absolute;
+    display: block;
+    font-family: "Frankfurter";
+    left: 59%;
+    top: 23%;
+  }
+  #logo-banner {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #content {
+    position: absolute;
+    top: 110%;
+    left: 46%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+}
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  iframe {
+    position: absolute;
+    display: block;
+    border-style: none;
+    top: 90%;
+    width: 40%;
+    height: 40%;
+    left: 32%;
+  }
+  .jalan {
+    position: absolute;
+    left: 21%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 66%;
+    top: 19%;
+  }
+  .jalan01 {
+    position: absolute;
+    font-family: "Frankfurter";
+    left: 59%;
+    top: 19%;
+  }
+  .jalan02 {
+    position: absolute;
+    display: block;
+    font-family: "Frankfurter";
+    left: 59%;
+    top: 23%;
+  }
+  #logo-banner {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #content {
+    position: absolute;
+    top: 110%;
+    left: 46%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+}
+@media only screen and (max-height: 700px) {
+  #content {
+    position: absolute;
+    top: 120%;
+    left: 46%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  .jalan {
+    position: absolute;
+    left: 20%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 66%;
+    top: 29%;
+  }
+  .jalan01 {
+    position: absolute;
+    font-family: "Frankfurter";
+    left: 56%;
+    top: 29%;
+  }
+  .jalan02 {
+    position: absolute;
+    display: block;
+    font-family: "Frankfurter";
+    left: 56%;
+    top: 36%;
+  }
+  .button {
+    position: relative;
+    background-color: #d51479;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    top: 45%;
+    left: 46%;
+  }
+}
+@media only screen and (min-height: 740px) and (min-width: 375px) and (max-width: 1024px) {
+  #logo-banner {
+    position: absolute;
+    top: 70%;
+    left: 75.1%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #logo-text {
+    left: 100%;
+    display: block;
+    width: 70%;
+  }
+  #content a {
+    position: relative;
+    top: 20%;
+    left: 130%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #content i {
+    position: absolute;
+    top: 50%;
+    margin-left: -65px;
+  }
+  .openclose {
+    position: absolute;
+    left: 120%;
+    top: 190%;
+    width: 100%;
+    font-size: 20px;
+  }
+  iframe {
+    position: absolute;
+    width: 90%;
+    top: 120%;
+    left: 3%;
+  }
+
+  #footer-background {
+    position: absolute;
+    background-color: rgba(236, 230, 230, 0.76);
+    width: 100%;
+    height: 150%;
+    top: 160%;
+    overflow-y: hidden;
+  }
+
+  #content h2 {
+    position: absolute;
+    top: 110;
+  }
+  .logo1 {
+    position: absolute;
+    left: 46%;
+    top: 13%;
+  }
+  .jalan {
+    position: absolute;
+    top: 14%;
+    left: 5%;
+    width: 90%;
+  }
+  .jalan2 {
+    position: absolute;
+    left: 34%;
+    width: 70%;
+    top: 17%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 46%;
+    top: 25%;
+  }
+  .jalan01 {
+    position: absolute;
+    left: 11%;
+    width: 90%;
+    top: 26%;
+  }
+  .jalan02 {
+    position: absolute;
+    left: 10%;
+    width: 100%;
+    top: 29%;
+  }
+  .horizontal-kontak {
+    /* display: none; */
+    overflow-y: auto;
+    position: absolute;
+    width: 1000px;
+    top: 40%;
+    left: 20%;
+  }
+  .tokopedia {
+    position: absolute;
+    top: 47%;
+    left: 20%;
+    width: 1000px;
+  }
+  .whatsapp {
+    /* display: none; */
+    position: absolute;
+    top: 54%;
+    width: 670px;
+    left: 20%;
+  }
+  .shopee {
+    position: absolute;
+    top: 61%;
+    width: 670px;
+    left: 20%;
+  }
+  .instagram {
+    /* display: none; */
+    position: absolute;
+    top: 68%;
+    width: 400px;
+    left: 20%;
+  }
+  .facebook {
+    /* display: none; */
+    position: absolute;
+    top: 75%;
+    width: 280px;
+    left: 20%;
+  }
+  .button {
+    position: relative;
+    background-color: #d51479;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    top: 65%;
+    left: 21%;
+    height: 8px;
+    width: 120px;
+  }
+}
+@media only screen and (max-height: 740px) and (min-width: 360px) and (max-width: 698px) {
+  #logo-banner {
+    position: absolute;
+    top: 70%;
+    left: 75.1%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #logo-text {
+    left: 100%;
+    display: block;
+    width: 70%;
+  }
+  #content a {
+    position: relative;
+    top: 20%;
+    left: 130%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #content i {
+    position: absolute;
+    top: 50%;
+    margin-left: -65px;
+  }
+  .openclose {
+    position: absolute;
+    left: 120%;
+    top: 190%;
+    width: 100%;
+    font-size: 20px;
+  }
+  iframe {
+    position: absolute;
+    width: 90%;
+    top: 120%;
+    left: 3%;
+  }
+
+  #footer-background {
+    position: absolute;
+    background-color: rgba(236, 230, 230, 0.76);
+    width: 100%;
+    height: 150%;
+    top: 160%;
+    overflow-y: hidden;
+  }
+
+  #content h2 {
+    position: absolute;
+    top: 110;
+  }
+  .logo1 {
+    position: absolute;
+    left: 46%;
+    top: 13%;
+  }
+  .jalan {
+    position: absolute;
+    top: 14%;
+    left: 9%;
+    width: 90%;
+  }
+  .jalan2 {
+    position: absolute;
+    left: 34%;
+    width: 70%;
+    top: 17%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 46%;
+    top: 25%;
+  }
+  .jalan01 {
+    position: absolute;
+    left: 11%;
+    width: 90%;
+    top: 26%;
+  }
+  .jalan02 {
+    position: absolute;
+    left: 10%;
+    width: 100%;
+    top: 29%;
+  }
+  .horizontal-kontak {
+    /* display: none; */
+    overflow-y: auto;
+    position: absolute;
+    width: 1000px;
+    top: 40%;
+    left: 20%;
+  }
+  .tokopedia {
+    position: absolute;
+    top: 47%;
+    left: 20%;
+    width: 1000px;
+  }
+  .whatsapp {
+    /* display: none; */
+    position: absolute;
+    top: 54%;
+    width: 670px;
+    left: 20%;
+  }
+  .shopee {
+    position: absolute;
+    top: 61%;
+    width: 670px;
+    left: 20%;
+  }
+  .instagram {
+    /* display: none; */
+    position: absolute;
+    top: 68%;
+    width: 400px;
+    left: 20%;
+  }
+  .facebook {
+    /* display: none; */
+    position: absolute;
+    top: 75%;
+    width: 280px;
+    left: 20%;
+  }
+  .button {
+    position: relative;
+    background-color: #d51479;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    top: 61%;
+    left: 21%;
+    height: 8px;
+    width: 120px;
+  }
+}
+@media only screen and (min-height: 1024px) and (max-height: 1024px) and (min-width: 768px) and (max-width: 768px) {
+  #logo-banner {
+    position: absolute;
+    top: 70%;
+    left: 65.1%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #logo-text {
+    left: 100%;
+    display: block;
+    width: 70%;
+  }
+  #content a {
+    position: relative;
+    top: -20%;
+    left: 150%;
+    width: 300px;
+    height: 220px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px;
+  }
+  #content i {
+    position: absolute;
+    top: 30%;
+    margin-left: -5px;
+  }
+  .openclose {
+    position: absolute;
+    left: 140%;
+    top: 170%;
+    width: 100%;
+    font-size: 20px;
+  }
+  iframe {
+    position: absolute;
+    width: 70%;
+    top: 120%;
+    left: 16%;
+    height: 280px;
+  }
+
+  #footer-background {
+    position: absolute;
+    background-color: rgba(236, 230, 230, 0.76);
+    width: 100%;
+    height: 150%;
+    top: 160%;
+    overflow-y: hidden;
+  }
+
+  #content h2 {
+    position: absolute;
+    top: 110;
+  }
+  .logo1 {
+    position: absolute;
+    left: 50%;
+    top: 13%;
+  }
+  .jalan {
+    position: absolute;
+    top: 14%;
+    left: 28%;
+    width: 100%;
+  }
+  .jalan2 {
+    position: absolute;
+    left: 42%;
+    width: 70%;
+    top: 17%;
+  }
+  .logo2 {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+  }
+  .jalan01 {
+    position: absolute;
+    left: 32%;
+    width: 90%;
+    top: 26%;
+  }
+  .jalan02 {
+    position: absolute;
+    left: 32%;
+    width: 100%;
+    top: 29%;
+  }
+  .horizontal-kontak {
+    /* display: none; */
+    overflow-y: auto;
+    position: absolute;
+    width: 1000px;
+    top: 40%;
+    left: 37%;
+  }
+  .tokopedia {
+    position: absolute;
+    top: 47%;
+    left: 37%;
+    width: 1000px;
+  }
+  .whatsapp {
+    /* display: none; */
+    position: absolute;
+    top: 54%;
+    width: 670px;
+    left: 37%;
+  }
+  .shopee {
+    position: absolute;
+    top: 61%;
+    width: 670px;
+    left: 37%;
+  }
+  .instagram {
+    /* display: none; */
+    position: absolute;
+    top: 68%;
+    width: 400px;
+    left: 37%;
+  }
+  .facebook {
+    /* display: none; */
+    position: absolute;
+    top: 75%;
+    width: 280px;
+    left: 37%;
+  }
+  .button {
+    position: relative;
+    background-color: #d51479;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    top: 65%;
+    left: 37%;
+    height: 8px;
+    width: 120px;
+  }
+}

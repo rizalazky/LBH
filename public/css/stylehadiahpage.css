@@ -1,0 +1,125 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@font-face {
+  font-family: "Frankfurter";
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot");
+  src: url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/d3eba8ec8662173409b7229addecbf7a.svg#Frankfurter")
+      format("svg");
+}
+@font-face {
+  font-family: "VAG Rounded";
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot");
+  src: url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/dc8d88cde32af2f5c8ceeb8b535bd35e.svg#VAG Rounded")
+      format("svg");
+}
+/* hadiah */
+*{
+    padding: 0;
+    margin: 0;
+}
+.container__hadiah{
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #E7218C;
+}
+
+.header__hadiah{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logo{
+  margin: auto;
+  /* background-size: contain; */
+}
+
+.header__text{
+    text-align: center;
+    font-family: "Frankfurter";
+    /* font-size: 24px; */
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+  
+  .row__hadiah{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hadiah__card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #FFFFFF;
+    transition: 0.3s;
+    width: 20%;
+    height: 350px;
+    margin: 10px;
+    border: 1px solid rgba(0,0,0,0.25);
+    transition: 0.5s;
+    text-decoration: none;
+    color:black;
+  }
+
+  .judul_text{
+    color: #4C9F8E;
+    font-family: 'Vag Rounded';
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
+  }
+
+  .hadiah__card:hover{
+    opacity: 0.6;
+  }
+
+  .hadiah__card_img{
+    height: 70%;
+    width: 100%;
+    background-color: gray;
+  }
+  .hadiah__card__desc{
+      text-align: center;
+    padding: 5px 16px;
+  }
+
+  .btn-logout{
+    /* z-index:99; */
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: white;
+    color: #E7218C;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .btn-logout a{
+    color: #E7218C;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    width: fit-content;
+    
+  }
