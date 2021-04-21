@@ -56,7 +56,7 @@
                                                 }
                                             }
                                             ?>
-                                            <input type="date" class="form-input" name="tgllahir" value="<?php echo $detail_data_anak[$i] ? $detail_data_anak[$i]->tgl_lahir_anak: "" ?>" id="tgllahir" placeholder="Masukkan tanggal lahir anak" />
+                                            <input type="date" class="form-input" name="tgllahir" value="<?php echo isset($detail_data_anak[$i]) ? $detail_data_anak[$i]->tgl_lahir_anak: "" ?>" id="tgllahir" placeholder="Masukkan tanggal lahir anak" />
                                             <label for="jeniskelamin">Jenis Kelamin:</label>
                                             <select name="jeniskelamin" class="form-input" name="jeniskelamin">
                                             <?php
