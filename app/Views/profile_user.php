@@ -126,6 +126,9 @@ session_start()
     <!-- JS -->
     <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
+    <script>
+        document.getElementById('tgllahir').valueAsDate = new Date();
+    </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

@@ -37,7 +37,7 @@ class Pendaftaran extends BaseController
             $nohp = isset($_POST['notelp']) ? $_POST['notelp'] : '';
             $password = isset($_POST['password']) ? $_POST['password'] : '';
             $password2 = isset($_POST['ulangpassword']) ? $_POST['ulangpassword'] : '';
-
+        
             if($password == $password2){
                 $data=array(
                     "type"=> "register_customer",
@@ -47,6 +47,9 @@ class Pendaftaran extends BaseController
                     "company_name"=>$namalengkap,
                     "password"=>$password
                 ); 
+
+                // var_dump($data);
+                // die;
     
                 if ($namalengkap !== '' && $nohp) {
                     $postTo = $this->netsuite_models->postToNetsuite($data);

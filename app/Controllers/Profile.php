@@ -23,6 +23,7 @@ class Profile extends BaseController
         $noHp=session()->get('user_customer')->phone;
         $getFrom = $this->netsuite_models->getCustomer($noHp);
         $idRec=$getFrom->internalid;
+        
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
         // $getHistoryReward->hadiah;
         // die;
@@ -31,8 +32,8 @@ class Profile extends BaseController
         // var_dump($data['history_reward']);
         // die;
         $data['user_customer']=$getFrom;
-        // var_dump($data['user_customer']);
-        // die; 
+
+        
         return view('profile_user',$data);
     }
 
@@ -104,6 +105,7 @@ class Profile extends BaseController
             "whatsapp"=>$whatsapp,
             "instagram"=>$instagram,
             "jumlahanak"=>$jumlahanak,
+            "alamat"=>$alamat,
             "record"=>"customer",
         );
         $postTo = $this->netsuite_models->postToNetsuite($data);
