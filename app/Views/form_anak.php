@@ -60,7 +60,7 @@
                                             <label for="jeniskelamin">Jenis Kelamin:</label>
                                             <select name="jeniskelamin" class="form-input" name="jeniskelamin">
                                             <?php
-                                            if($detail_data_anak[$i]){
+                                            if(isset($detail_data_anak[$i])){
                                                 if($detail_data_anak[$i]->gender_anak =="1"){
                                                     ?>
                                                     <option value="1" selected>Laki-Laki</option>
