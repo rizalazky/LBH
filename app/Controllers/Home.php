@@ -19,6 +19,7 @@ class Home extends BaseController
 	}
 
 	public function login(){
+		session()->set('nohp','');
 		return view('login');
 	}
 
@@ -38,7 +39,8 @@ class Home extends BaseController
 				echo "<script>alert('Password Salah !!');window.location.href='".base_url('/login')."'</script>";	
 			}
 		}else{
-			$_SESSION['nohp'] = $noHp;
+			// $_SESSION['nohp'] = $noHp;
+			session()->set('nohp',$noHp);
 			echo "<script>alert('Customer dengan No hp tersebut tidak ditemukan !!');window.location.href='".base_url('/pendaftaran')."'</script>";
 		}
 	}

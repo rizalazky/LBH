@@ -29,16 +29,18 @@ class Profile extends BaseController
         // die;
         // var_dump($getHistoryReward);die;
         $data['history_reward']=(array) $getHistoryReward;
-        // var_dump($data['history_reward']);
-        // die;
+        session()->set('user_customer',$getFrom);
         $data['user_customer']=$getFrom;
-
         
         return view('profile_user',$data);
     }
 
     public function form_anak()
     {
+        $jumlahanak=session()->get('user_customer')->jumlahanak;
+        if($jumlahanak =="" || $jumlahanak == 0){
+            echo "<script>alert('jumlah anak harus diisi');window.location.href='".base_url('/profile')."'</script>";
+        }
         $noHp=session()->get('user_customer')->phone;
         $getFrom = $this->netsuite_models->getCustomer($noHp);
         $data['user_customer']=$getFrom;

@@ -38,7 +38,13 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">No Telp:</label>
-                            <input type="text" class="form-input" name="notelp" id="notelp" placeholder="Masukkan no telp"/>
+                            <?php
+                                $nohp="";
+                                if(session()->get('nohp')){
+                                    $nohp=session()->get('nohp');
+                                }
+                            ?>
+                            <input type="text" class="form-input" name="notelp" id="notelp" placeholder="Masukkan no telp" value="<?php echo $nohp; ?>"/>
                         </div>
                         <div class="form-group">
                             <label for="nama">Password:</label>
@@ -46,11 +52,11 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">Ketik Ulang Password:</label>
-                            <input type="password" class="form-input" name="ulangpassword" id="ulangpassword" placeholder="Masukkan Ulang Password"/>
+                            <input type="password" class="form-input" onchange="ulangPassword(event)" name="ulangpassword" id="ulangpassword" placeholder="Masukkan Ulang Password"/>
                         </div>
            
                         <div class="form-group">
-                            <input type="submit" id='submit' name="submit" id="submit" class="form-submit" value="Daftar"/>
+                            <input type="submit" id='submit' onclick="ulangPassword(event)" name="submit" id="submit" class="form-submit" value="Daftar"/>
                         </div>
                     </form>
                     <p class="loginhere">
@@ -66,7 +72,14 @@
     <script src="<?php echo base_url()?>/public/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url()?>/public/js/main.js"></script>
     <script>
-        
+        function ulangPassword(e){
+            value=e.target.value || document.getElementById('ulangpassword').value;
+            password=document.getElementById('password').value;
+            if(value !== password){
+                e.preventDefault();
+                alert('Password Tidak Sesuai');
+            }
+        }
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

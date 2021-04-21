@@ -43,7 +43,7 @@ session_start()
                         </div>
                         <div class="form-group">
                             <label for="nama">No Telp:</label>
-                            <input type="text" class="form-input" name="notelp" id="notelp" placeholder="Masukkan no telp" value="<?php echo $user_customer->phone;?>"/>
+                            <input type="text" class="form-input" onkeypress="return isNumberKey(event)" name="notelp" id="notelp" placeholder="Masukkan no telp" value="<?php echo $user_customer->phone;?>"/>
                         </div>
                         <div class="form-group">
                             <label for="nama">Tgl Lahir:</label> 
@@ -58,7 +58,7 @@ session_start()
                                     $user_customer->tanggallahir=$newFormatDate;
                                 }
                             ?>
-                            <input type="date" class="form-input" name="tgllahir" id="tgllahir" placeholder="Masukkan Tgl Lahir" value="<?php echo $user_customer->tanggallahir;?>"/>
+                            <input type="date" class="form-input" name="tgllahir" id="tgllahir" placeholder="Masukkan Tgl Lahir" value="<?php echo $user_customer->tanggallahir ? $user_customer->tanggallahir : date('Y-m-d');?>"/>
                         </div>
                         <div class="form-group">
                             <label for="nama">Alamat:</label>
@@ -70,7 +70,7 @@ session_start()
                         </div>
                         <div class="form-group">
                             <label for="nama">Whatsapp:</label>
-                            <input type="text" class="form-input" name="whatsapp" id="whatsapp" placeholder="Masukkan whatsapp" value="<?php echo $user_customer->whatsapp;?>"/>
+                            <input type="text" class="form-input" onkeypress="return isNumberKey(event)" name="whatsapp" id="whatsapp" placeholder="Masukkan whatsapp" value="<?php echo $user_customer->whatsapp;?>"/>
                         </div>
                         <div class="form-group">
                             <label for="nama">Tiktok:</label>
@@ -88,11 +88,7 @@ session_start()
                         <br>
                         <div class="btn-group">
                             <input type="submit" name="next" id="submit" class="btn-profile" value="Save" />
-                            <button type="button" class="btn-profile"><a style='color:white;text-decoration:none;' href="<?php echo base_url()?>/profile/form_anak/<?php echo $user_customer->jumlahanak;?>">Next</a></button>
-                            <!-- <button class='btn-profile'>
-                                
-                                Data Anak
-                            </button> -->
+                            <button type="button" class="btn-profile"><a style='color:white;text-decoration:none;' href="<?php echo base_url()?>/profile/form_anak/<?php echo $user_customer->jumlahanak;?>">Next</a></button> 
                         </div>
                     </form>
                     <!-- <p class="loginhere">
@@ -127,7 +123,15 @@ session_start()
     <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
     <script>
-        document.getElementById('tgllahir').valueAsDate = new Date();
+        // document.getElementById('tgllahir').valueAsDate = new Date();
+        function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
