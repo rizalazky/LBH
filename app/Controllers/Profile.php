@@ -46,7 +46,8 @@ class Profile extends BaseController
         $getDetailAnak=$this->netsuite_models->getDetailAnak($idRec);
        
         $data['detail_data_anak']=$getDetailAnak;
-        // var_dump($data['detail_data_anak']);die;
+        // var_dump($data['detail_data_anak'][3]);
+        // die;
         return view('form_anak',$data);
     }
 
