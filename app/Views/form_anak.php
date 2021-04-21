@@ -39,11 +39,12 @@
                                 <div class="signup-content">
                                     <h2 class="form-title">Detail Anak</h2>
                                         <div class="form-group">
-                                            <input type="hidden" class="form-input" name="id" value="<?php echo $detail_data_anak[$i]->id?>" id="namaanak" placeholder="Masukkan nama anak" />
+                                            <input type="hidden" class="form-input" name="id" value="<?php echo $detail_data_anak[$i] ?  $detail_data_anak[$i]->id :  ''?>" id="namaanak" placeholder="Masukkan nama anak" />
                                             <label for="nama">Nama Anak:</label>
-                                            <input type="text" class="form-input" name="namaanak" value="<?php echo $detail_data_anak[$i]->nama_anak?>" id="namaanak" placeholder="Masukkan nama anak" />
+                                            <input type="text" class="form-input" name="namaanak" value="<?php echo $detail_data_anak[$i] ? $detail_data_anak[$i]->nama_anak : ''?>" id="namaanak" placeholder="Masukkan nama anak" />
                                             <label for="tgllahir">Tgl Lahir:</label>
                                             <?php 
+                                            if($detail_data_anak[$i]){
                                                 if($detail_data_anak[$i]->tgl_lahir_anak){
                                                     $dateSplit=explode('/',$detail_data_anak[$i]->tgl_lahir_anak);
                                                     $hari=$dateSplit[0] >9 ? $dateSplit[0] : '0'.$dateSplit[0];
@@ -53,11 +54,13 @@
                                                     
                                                     $detail_data_anak[$i]->tgl_lahir_anak=$newFormatDate;
                                                 }
+                                            }
                                             ?>
-                                            <input type="date" class="form-input" name="tgllahir" value="<?php echo $detail_data_anak[$i]->tgl_lahir_anak?>" id="tgllahir" placeholder="Masukkan tanggal lahir anak" />
+                                            <input type="date" class="form-input" name="tgllahir" value="<?php echo $detail_data_anak[$i] ? $detail_data_anak[$i]->tgl_lahir_anak: "" ?>" id="tgllahir" placeholder="Masukkan tanggal lahir anak" />
                                             <label for="jeniskelamin">Jenis Kelamin:</label>
                                             <select name="jeniskelamin" class="form-input" name="jeniskelamin">
                                             <?php
+                                            if($detail_data_anak[$i]){
                                                 if($detail_data_anak[$i]->gender_anak =="1"){
                                                     ?>
                                                     <option value="1" selected>Laki-Laki</option>
@@ -76,6 +79,12 @@
                                                     <option value="2">Perempuan</option>
                                                     <?php
                                                 }
+                                            }else{
+                                                ?>
+                                                <option value="1" >Laki-Laki</option>
+                                                <option value="2">Perempuan</option>
+                                                <?php
+                                            }
                                             ?>
                                             </select>
                                             <input type="submit" name="submit" id="submit" class="form-submit" value="Save" />
