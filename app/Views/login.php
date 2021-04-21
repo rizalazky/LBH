@@ -38,6 +38,7 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Login" />
+                            <!-- <a href="<?php echo base_url()?>/resetpassword">reset password</a> -->
                         </div>
                     </form>
                     <p class="loginhere">

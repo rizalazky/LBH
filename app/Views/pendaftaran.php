@@ -8,7 +8,7 @@
     <title>Pendaftaran</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="<?php echo base_url()?>/publicfonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>/public/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url()?>/public/css/style.css">
@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="signup-content">
                     <form action="<?php echo base_url()?>/pendaftaran/register" method="POST" id="signup-form" class="signup-form">
-                        <img class="logo" src="/img/logo.png" alt="">
+                        <img class="logo" src="<?php echo base_url()?>/public/img/logo.png" alt="">
                         <h2 class="form-title">Form Pendaftaran</h2>
                         <div class="alert">
                             
@@ -73,8 +73,9 @@
     <script src="<?php echo base_url()?>/public/js/main.js"></script>
     <script>
         function ulangPassword(e){
-            value=e.target.value || document.getElementById('ulangpassword').value;
-            password=document.getElementById('password').value;
+            let value=document.getElementById('ulangpassword').value;
+            let password=document.getElementById('password').value;
+            
             if(value !== password){
                 e.preventDefault();
                 alert('Password Tidak Sesuai');
