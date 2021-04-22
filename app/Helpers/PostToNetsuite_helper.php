@@ -126,7 +126,7 @@ function getAllLocation(){
     $oauth_timestamp = time();
     $oauth_signature_method = 'HMAC-SHA256';
     $oauth_version = "1.0";
-
+    $noHp;
     $base_string =
         "GET&" . urlencode(NETSUITE_URL) ."&".
         urlencode(
@@ -301,7 +301,7 @@ function login($username,$password,$location){
   $oauth_timestamp = time();
   $oauth_signature_method = 'HMAC-SHA256';
   $oauth_version = "1.0";
-
+  $noHp;
   $base_string =
       "GET&" . urlencode(NETSUITE_URL) ."&".
       urlencode(
