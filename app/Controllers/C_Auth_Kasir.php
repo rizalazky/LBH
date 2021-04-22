@@ -46,7 +46,7 @@ class C_Auth_Kasir extends BaseController
         // var_dump($data);
         if($data->username){
             $ses_data = [
-                'email'       => $email,
+                'email'       => '',
                 'username'    => $username,
                 'logged_in'   => TRUE,
                 'location'    =>$location,
