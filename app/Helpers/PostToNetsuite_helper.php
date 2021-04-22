@@ -126,7 +126,7 @@ function getAllLocation(){
     $oauth_timestamp = time();
     $oauth_signature_method = 'HMAC-SHA256';
     $oauth_version = "1.0";
-    $noHp;
+
     $base_string =
         "GET&" . urlencode(NETSUITE_URL) ."&".
         urlencode(
@@ -299,7 +299,7 @@ function login($username,$password,$location){
   $oauth_timestamp = time();
   $oauth_signature_method = 'HMAC-SHA256';
   $oauth_version = "1.0";
-  $noHp;
+
   $base_string =
       "GET&" . urlencode(NETSUITE_URL) ."&".
       urlencode(
@@ -340,9 +340,7 @@ function login($username,$password,$location){
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'GET',
-    CURLOPT_POSTFIELDS =>'{
-      "phone_number": "'.$noHp.'"
-  }',
+    CURLOPT_POSTFIELDS =>'',
     CURLOPT_HTTPHEADER => array(
       $header,
       'Content-Type: application/json'
@@ -399,9 +397,7 @@ function getHadiah($location){
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'GET',
-    CURLOPT_POSTFIELDS =>'{
-      "phone_number": "'.$noHp.'"
-  }',
+    CURLOPT_POSTFIELDS =>'',
     CURLOPT_HTTPHEADER => array(
       $header,
       'Content-Type: application/json'
