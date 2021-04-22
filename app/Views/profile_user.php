@@ -82,13 +82,13 @@ session_start()
                         </div>
                         <div class="form-group">
                             <label for="nama">Jumah Anak:</label>
-                            <input type="text" class="form-input" name="jumlahanak" id="jumahanak" placeholder="Masukkan Jumah Anak" value="<?php echo $user_customer->jumlahanak;?>"/>
+                            <input type="text" class="form-input" name="jumlahanak" id="jumahanak" placeholder="Masukkan Jumah Anak" value="<?php echo $user_customer->jumlahanak ?>"/>
                         </div>
                         <br>
                         <br>
                         <div class="btn-group">
                             <input type="submit" name="next" id="submit" class="btn-profile" value="Save" />
-                            <button type="button" class="btn-profile"><a style='color:white;text-decoration:none;' href="<?php echo base_url()?>/profile/form_anak/<?php echo $user_customer->jumlahanak;?>">Next</a></button> 
+                            <button type="button" class="btn-profile"><a style='color:white;text-decoration:none;' href="<?php echo base_url()?>/profile/form_anak/<?php echo $user_customer->jumlahanak? $user_customer->jumlahanak : 0;?>">Next</a></button> 
                         </div>
                     </form>
                     <!-- <p class="loginhere">

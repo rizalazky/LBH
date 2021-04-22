@@ -13,21 +13,18 @@ class Profile extends BaseController
 
     public function __construct()
     {
-        $this->netsuite_models = new NetsuiteModels();
+        $this->netsuite_models = new NetsuiteModels(); 
         helper('form');
     }
 
     public function index()
     {
-        // var_dump(session()->get());die;
         $noHp=session()->get('user_customer')->phone;
         $getFrom = $this->netsuite_models->getCustomer($noHp);
         $idRec=$getFrom->internalid;
         
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-        // $getHistoryReward->hadiah;
-        // die;
-        // var_dump($getHistoryReward);die;
+        
         $data['history_reward']=(array) $getHistoryReward;
         session()->set('user_customer',$getFrom);
         $data['user_customer']=$getFrom;
@@ -35,10 +32,9 @@ class Profile extends BaseController
         return view('profile_user',$data);
     }
 
-    public function form_anak()
+    public function form_anak($jml)
     {
-        $jumlahanak=session()->get('user_customer')->jumlahanak;
-        if($jumlahanak =="" || $jumlahanak == 0){
+        if($jml =="" || $jml == 0){
             echo "<script>alert('jumlah anak harus diisi');window.location.href='".base_url('/profile')."'</script>";
         }
         $noHp=session()->get('user_customer')->phone;
@@ -74,7 +70,7 @@ class Profile extends BaseController
         $results =json_decode($postTo);             
        
         if($results->status=="succes"){
-            return redirect()->to('/profile/form_anak');
+            return redirect()->to('/profile/form_anak/'.session()->get('user_customer')->jumlahanak);
         }else{
             echo "<script>alert('Gagal Update Data Customer');window.location.href='".base_url('/profile')."'</script>";
         }
