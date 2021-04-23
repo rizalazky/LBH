@@ -30,6 +30,7 @@
                 <!-- <button type="button" name="add" id="add" class="btn btn-success">Tambah</button> -->
                 <div id="dynamic_field">
                     <?php 
+                    $urutanArray=array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","kesepuluh");
                     if($user_customer->jumlahanak){
                         for($i=0 ;$i<$user_customer->jumlahanak;$i++) {
                     ?>
@@ -37,7 +38,7 @@
                             <!-- <button class="btn_remove">x</button> -->
                             <form  method="POST" action="<?php echo base_url()?>/profile/save_anak">
                                 <div class="signup-content">
-                                    <h2 class="form-title">Detail Anak</h2>
+                                    <h2 class="form-title">Anak <?php echo $urutanArray[$i] ? $urutanArray[$i] : $i ;?></h2>
                                         <div class="form-group">
                                             <input type="hidden" class="form-input" name="id" value="<?php echo isset($detail_data_anak[$i])  ?  $detail_data_anak[$i]->id :  ''?>" id="namaanak" placeholder="Masukkan nama anak" />
                                             <label for="nama">Nama Anak:</label>

@@ -130,7 +130,8 @@ class C_Kasir extends BaseController
                         "estimasi_point"=> "",
                         "phone"=> $session->get('customer')->phone,
                         "loc_trx"=>$session->get('user')->location,
-                        "item_reward"=>''
+                        "item_reward"=>'',
+                        "id_customer"=>$session->get('customer')->internalid
                     );
                     // die(var_dump($dt));
                     if($jmlPembelanjaan >= 500000){
@@ -175,6 +176,7 @@ class C_Kasir extends BaseController
             $id_earn=$object[1]->record_id;
             $id_history=$object[2]->record_id;
             $object[1]->poin =floor($object[1]->poin);
+            
             $session->set('earn_loyalty',$object[1]);
 
             $dt=array(
