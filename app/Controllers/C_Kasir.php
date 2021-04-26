@@ -109,6 +109,7 @@ class C_Kasir extends BaseController
             
             $nostruk=$_POST['nostruk'];
             $tgltransaksi=explode("-",$_POST['tgltransaksi']);
+
             $file = $this->request->getFile('fotostruk');
                      
             if ($file->getError())
@@ -116,14 +117,15 @@ class C_Kasir extends BaseController
                 echo "<script>alert('".$file->getErrorString()."');window.location.href='".base_url()."/kasir/inputstruk'</script>"; 
             }else{
                 $filename = $file->getName();
-                $tempfile = $file->getTempName();
+                $tempfile = $file->getTempName(); 
 
                 $directoryUpload ='public/img/imgstruk/';
                 $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
-                if($upload){       
+                if($upload){      
+                    // tanda 
                     $dt=array(
                         "type"=> "earn_loyalty",
-                        "tgl_transaksi"=>$tgltransaksi[2]."/".$tgltransaksi[1]."/".$tgltransaksi[0],
+                        "tgl_transaksi"=>$tgltransaksi[1]."/".$tgltransaksi[2]."/".$tgltransaksi[0],
                         "amount_trx"=> $jmlPembelanjaan,
                         "no_struk"=>$nostruk,
                         "img_struk"=> base_url('/'.$directoryUpload.''.$session->get('customer')->phone.'-'.$filename),
@@ -140,9 +142,10 @@ class C_Kasir extends BaseController
                     }else{
                         $postToNS = $this->netsuite_models->postToNetsuite($dt);
                         $object=(array)json_decode($postToNS);
-                     
+                        
+                        var_dump($object);
+                        die;
                         $object[1]->poin =floor($object[1]->poin);
-                        // die(var_dump($object));
                         $session->set('earn_loyalty',$object[1]);
                         if($object[1]->status=='succes'){
                             return redirect()->to('/kasir/terimakasih');
@@ -171,8 +174,9 @@ class C_Kasir extends BaseController
             // var_dump($datainputStruk);
             // var_dump($object);
             // die;
-            $datapost=explode("/",$datainputStruk['tgl_transaksi']);
-            $datepost= $datapost ? $datapost[1]."/".$datapost[0]."/".$datapost[2]:date('m/d/y');
+            $datepost=$datainputStruk['tgl_transaksi'];
+          
+            // $datepost= $datapost ? $datapost[1]."/".$datapost[0]."/".$datapost[2]:date('m/d/y');
             $id_earn=$object[1]->record_id;
             $id_history=$object[2]->record_id;
             $object[1]->poin =floor($object[1]->poin);

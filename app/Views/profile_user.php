@@ -4,6 +4,12 @@ session_start()
 
 ?>
 
+<?php
+
+session_start()
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,27 +17,47 @@ session_start()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
+    <title>Welcome</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/profile_user.css">
 </head>
 
 <body>
     <!-- <img class="banner" src="<?php echo base_url() ?>/public/img/banner.jpeg" alt=""> -->
-    <div class="container_profile_user">
+    <div class="container">
         <div class="header">
             <img class="logo" src="<?php echo base_url() ?>/public/img/logo.png" alt="">
             <div class="navigation">
                 <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url()?>/logout">Logout</a>
             </div>
         </div>
-        <div class="profile_user">
-            <div class="profile_user_left">
-                    <form action="<?php echo base_url() ?>/profile/save" method="POST" id="signup-form" class="signup-form">
+        <div class="home">
+            <div class='navbar'>
+                <div class="navbar-menu">
+                    <a class="navbar-item" href="<?php echo base_url('/profile');?>">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/profile');?>">
+                        Profile
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/inputstruck');?>">
+                        Input Struck
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/daftarhadiah');?>">
+                        Daftar Hadiah
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/history');?>">
+                        Lihat History
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+            <form action="<?php echo base_url() ?>/profile/save" method="POST" id="signup-form" class="form">
                         <h2 class="form-title">Profile</h2>
                         <div class="form-group">
                             <label for="nama">Nama Lengkap</label>
@@ -91,33 +117,8 @@ session_start()
                             <button type="button" class="btn-profile"><a style='color:white;text-decoration:none;' href="<?php echo base_url()?>/profile/form_anak/<?php echo $user_customer->jumlahanak? $user_customer->jumlahanak : 0;?>">Next</a></button> 
                         </div>
                     </form>
-                    <!-- <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
-                    </p> -->
-            </div>
-            <div class="profile_user_right">
-                <h2 class="form-title">History Point dan Promo</h2>
-                <div class="history_reward">
-                    <ul class='history_menu'>
-                        <?php
-                        if($history_reward){
-                            foreach ($history_reward as $his) { 
-                        ?>
-                                <li class='history_item'>
-                                    <button class='history_date'><?php echo $his->tanggal ;?></button>
-                                    <ul class='history_desc'>
-                                        <li><strong><?php echo $his->amount ;?></strong> Total Belanja</li> 
-                                        <li><strong><?php echo $his->hadiah ;?></strong> </br> hadiah silaturahmi Rezeki Ramadhan</li> 
-                                        <li><strong><?php echo $his->poin ;?></strong> Poin Keluarga Lavie</li>
-                                        <li><strong><?php echo $his->totalKupon ;?></strong> Kupon undian kejutan THR</li> 
-                                    </ul>
-                                </li>
-                        <?php } };?>
-                    </ul>
-                </div>
-            </div>
+            </div> 
         </div>
-
     </div>
     <!-- JS -->
     <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
@@ -136,3 +137,4 @@ session_start()
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
+

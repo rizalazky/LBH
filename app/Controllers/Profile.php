@@ -19,17 +19,90 @@ class Profile extends BaseController
 
     public function index()
     {
+        return view('home');
+    }
+
+    public function profile(){
         $noHp=session()->get('user_customer')->phone;
         $getFrom = $this->netsuite_models->getCustomer($noHp);
-        $idRec=$getFrom->internalid;
-        
-        $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-        
-        $data['history_reward']=(array) $getHistoryReward;
+       
         session()->set('user_customer',$getFrom);
         $data['user_customer']=$getFrom;
         
         return view('profile_user',$data);
+    }
+
+    public function inputStruck(){
+        $session=session();
+        $data['action']='profile/inputstruk';
+       
+        $data['customer']=$session->get('customer');
+        if(isset($_POST['submit'])){
+            $jmlPembelanjaan=preg_replace('/[^0-9]/', '', $_POST['jmlbelanja']);
+            
+            $nostruk=$_POST['nostruk'];
+            $tgltransaksi=explode("-",$_POST['tgltransaksi']);
+
+            $file = $this->request->getFile('fotostruk');
+                     
+            if ($file->getError())
+            {
+                echo "<script>alert('".$file->getErrorString()."');window.location.href='".base_url()."/kasir/inputstruk'</script>"; 
+            }else{
+                $filename = $file->getName();
+                $tempfile = $file->getTempName(); 
+
+                $directoryUpload ='public/img/imgstruk/';
+                $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
+                if($upload){      
+                    // tanda 
+                    $dt=array(
+                        "type"=> "earn_loyalty",
+                        "tgl_transaksi"=>$tgltransaksi[1]."/".$tgltransaksi[2]."/".$tgltransaksi[0],
+                        "amount_trx"=> $jmlPembelanjaan,
+                        "no_struk"=>$nostruk,
+                        "img_struk"=> base_url('/'.$directoryUpload.''.$session->get('customer')->phone.'-'.$filename),
+                        "estimasi_point"=> "",
+                        "phone"=> $session->get('customer')->phone,
+                        "loc_trx"=>$session->get('user')->location,
+                        "item_reward"=>'',
+                        "id_customer"=>$session->get('customer')->internalid
+                    );
+                    // die(var_dump($dt));
+                    if($jmlPembelanjaan >= 500000){
+                        $session->set('input_struck_form',$dt);
+                        return redirect()->to('/kasir/pilihhadiah');
+                    }else{
+                        $postToNS = $this->netsuite_models->postToNetsuite($dt);
+                        $object=(array)json_decode($postToNS);
+                        
+                        var_dump($object);
+                        die;
+                        $object[1]->poin =floor($object[1]->poin);
+                        $session->set('earn_loyalty',$object[1]);
+                        if($object[1]->status=='succes'){
+                            return redirect()->to('/kasir/terimakasih');
+                        }
+                    }
+                }
+            }
+        }else{
+            return view('inputstruk',$data);
+        }
+    }
+
+    public function history(){
+        $idRec=session()->get('user_customer')->internalid;
+        
+        $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
+        
+        $data['history_reward']=array_reverse((array) $getHistoryReward);
+   
+        return view('history',$data);
+    }
+
+    public function daftarhadiah(){
+        return view('daftar_hadiah');
     }
 
     public function form_anak($jml)

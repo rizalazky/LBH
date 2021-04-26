@@ -45,6 +45,8 @@ class Home extends BaseController
 		}
 	}
 
+	
+
 	public function logout()
     {
         $session = session();

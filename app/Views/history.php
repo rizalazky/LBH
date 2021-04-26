@@ -18,7 +18,6 @@ session_start()
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/profile_user.css">
 </head>
 
 <body>
@@ -51,33 +50,17 @@ session_start()
                 </div>
             </div>
             <div class="content">
-            <form action="<?php echo base_url()."/".$action?>" method="POST" id="signup-form" class="form" enctype="multipart/form-data">
-                        <h2 class="form-title" >Input struk</h2>
-                         <div class="alert">
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="nama">Jumlah Pembelanjaan:</label>
-                            <input type="text" class="form-input" name="jmlbelanja" id="jmlbelanja" placeholder="Masukkan jumlah belanja" />
-                        </div>
-                        <div class="form-group">
-                            <label for="nama">No Struk:</label>
-                            <input type="text" class="form-input" name="nostruk" id="nostruk" placeholder="Masukkan no struk" />
-                        </div>
-                        <div class="form-group">
-                            <label for="nama">Foto Struk:</label>
-                            <input type="file" class="form-input" name="fotostruk" id="fotostruk" placeholder="Upload Foto Struk" />
-                        </div>
-                        <div class="form-group">
-                            <label for="nama">Tanggal Transaksi:</label>
-                            <input type="date" class="form-input" name="tgltransaksi" id="tgltransaksi" placeholder="Masukkan tgl transaksi" />
-                        </div>
-                        <br>
-                        <br>
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="btn-profile" value="Submit" />
-                        </div>
-                    </form>
+                <ul>
+                    <?php
+                        for ($i=0; $i <  count($history_reward);$i++) { 
+                    ?>
+                           <li>
+                                <?php echo $history_reward[$i]->tanggal?>
+                                <?php echo $history_reward[$i]->hadiah?>
+                           </li>
+                <?php    }
+                ?>
+                </ul>
             </div> 
         </div>
     </div>
@@ -94,8 +77,6 @@ session_start()
 
          return true;
       }
-
-      document.getElementById('tgltransaksi').valueAsDate = new Date();
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
