@@ -18,6 +18,7 @@ session_start()
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/daftar-hadiah.css">
 </head>
 
 <body>
@@ -50,10 +51,28 @@ session_start()
                 </div>
             </div>
             <div class="content">
-                daftar hadiah page
+                <div class="container-daftar-hadiah">
+                    <?php
+                        for ($i=0; $i <count($daftar_hadiah) ; $i++) { 
+                    ?>
+                        <div class="daftar-hadiah-item">
+                            <div class='list-gambar'>
+                                <img src="<?php echo $daftar_hadiah[$i]['img']?>" alt="">
+                            </div>
+                            <div class='desc'>
+                                <h3><?php echo $daftar_hadiah[$i]['namahadiah']?></h3>
+                                <h3><?php echo $daftar_hadiah[$i]['desc']?></h3>
+                                <h3><?php echo $daftar_hadiah[$i]['poindibutuhkan']?> Poin</h3>
+                            </div>
+                        </div>
+                    <?php
+                        }
+                    ?>
+                </div>
             </div> 
         </div>
     </div>
+    
     <!-- JS -->
     <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>

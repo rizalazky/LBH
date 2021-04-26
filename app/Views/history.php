@@ -18,6 +18,8 @@ session_start()
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
 </head>
 
 <body>
@@ -50,24 +52,44 @@ session_start()
                 </div>
             </div>
             <div class="content">
-                <ul>
-                    <?php
-                        for ($i=0; $i <  count($history_reward);$i++) { 
-                    ?>
-                           <li>
-                                <?php echo $history_reward[$i]->tanggal?>
-                                <?php echo $history_reward[$i]->hadiah?>
-                           </li>
-                <?php    }
-                ?>
-                </ul>
+                <div class='container-table-history'>
+                    <table width="100%" id="table-history">
+                        <thead>
+                                <th>Tanggal</th>
+                                <th>Total Belanja</th>
+                                <th>Hadiah</th>
+                                <th>Poin</th>
+                                <th>Kupon</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                                for ($i=0; $i <  count($history_reward);$i++) { 
+                            ?>
+                                <tr>
+                                    <td><?php echo $history_reward[$i]->tanggal;?></td>
+                                    <td><?php echo $history_reward[$i]->amount;?></td>
+                                    <td><?php echo $history_reward[$i]->hadiah;?></td>
+                                    <td><?php echo $history_reward[$i]->poin;?></td>
+                                    <td><?php echo $history_reward[$i]->totalKupon;?></td>
+                                </tr>
+                            <?php
+                                }
+                            ?>
+                            
+                        </tbody>
+                    </table>
+                </div>
             </div> 
         </div>
     </div>
     <!-- JS -->
     <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
     <script>
+        $(document).ready( function () {
+            $('#table-history').DataTable();
+        } );
         // document.getElementById('tgllahir').valueAsDate = new Date();
         function isNumberKey(evt)
       {

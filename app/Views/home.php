@@ -54,7 +54,7 @@ session_start()
                     <img src="" alt="">
                 </div>
                 <div class="greeting">
-                    <h1>Selamat Datang Kembali <span>Customer</span></h1>
+                    <h1>Selamat Datang Kembali <span><?php echo $user_customer->companyname;?></span></h1>
                     <ul class='poin-menu'>
                         <li >XX Poin</li>
                         <li>XX Poin Keluarga Lavie</li>

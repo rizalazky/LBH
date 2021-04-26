@@ -19,11 +19,18 @@ class Profile extends BaseController
 
     public function index()
     {
-        return view('home');
+        $noHp=session()->get('user_customer')->phone;
+        // die($noHp);
+        $getFrom = $this->netsuite_models->getCustomer($noHp);
+        // var_dump($getFrom);
+        $data['user_customer']=$getFrom;
+        session()->set('user_customer',$getFrom);
+        return view('home',$data);
     }
 
     public function profile(){
         $noHp=session()->get('user_customer')->phone;
+   
         $getFrom = $this->netsuite_models->getCustomer($noHp);
        
         session()->set('user_customer',$getFrom);
@@ -95,14 +102,36 @@ class Profile extends BaseController
         $idRec=session()->get('user_customer')->internalid;
         
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-        
-        $data['history_reward']=array_reverse((array) $getHistoryReward);
+        // var_dump($getHistoryReward);die;
+        // $data['history_reward']=array_reverse((array) $getHistoryReward);
+        $data['history_reward']=(array) $getHistoryReward;
    
         return view('history',$data);
     }
 
     public function daftarhadiah(){
-        return view('daftar_hadiah');
+        $daftarHadiah=array(
+            array(
+                "namahadiah"=>"Hadiah Pertama",
+                "desc"=>"deskripsi",
+                "img"=>"https://picsum.photos/300/200",
+                "poindibutuhkan"=>1200
+            ),
+            array(
+                "namahadiah"=>"Hadiah kedua",
+                "desc"=>"deskripsi",
+                "img"=>"https://picsum.photos/300/200",
+                "poindibutuhkan"=>13
+            ),
+            array(
+                "namahadiah"=>"Hadiah ketiga",
+                "desc"=>"deskripsi",
+                "img"=>"https://picsum.photos/300/200",
+                "poindibutuhkan"=>15
+            ),
+        );
+        $data['daftar_hadiah']=$daftarHadiah;
+        return view('daftar_hadiah',$data);
     }
 
     public function form_anak($jml)
