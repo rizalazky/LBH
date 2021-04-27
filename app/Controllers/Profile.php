@@ -65,7 +65,7 @@ class Profile extends BaseController
 
     public function inputStruck(){
         $session=session();
-        $data['action']='profile/inputstruk';
+        $data['action']='profile/inputstruck';
        
         $data['customer']=$session->get('customer');
         if(isset($_POST['submit'])){
@@ -78,7 +78,7 @@ class Profile extends BaseController
                      
             if ($file->getError())
             {
-                echo "<script>alert('".$file->getErrorString()."');window.location.href='".base_url()."/kasir/inputstruk'</script>"; 
+                echo "<script>alert('".$file->getErrorString()."');window.location.href='".base_url()."/profile/inputstruck'</script>"; 
             }else{
                 $filename = $file->getName();
                 $tempfile = $file->getTempName(); 
@@ -92,29 +92,36 @@ class Profile extends BaseController
                         "tgl_transaksi"=>$tgltransaksi[1]."/".$tgltransaksi[2]."/".$tgltransaksi[0],
                         "amount_trx"=> $jmlPembelanjaan,
                         "no_struk"=>$nostruk,
-                        "img_struk"=> base_url('/'.$directoryUpload.''.$session->get('customer')->phone.'-'.$filename),
+                        "img_struk"=> base_url('/'.$directoryUpload.''.$session->get('user_customer')->phone.'-'.$filename),
                         "estimasi_point"=> "",
-                        "phone"=> $session->get('customer')->phone,
-                        "loc_trx"=>$session->get('user')->location,
+                        "phone"=> $session->get('user_customer')->phone,
+                        "loc_trx"=>"",
                         "item_reward"=>'',
                         "id_customer"=>$session->get('customer')->internalid
                     );
-                    // die(var_dump($dt));
-                    if($jmlPembelanjaan >= 500000){
-                        $session->set('input_struck_form',$dt);
-                        return redirect()->to('/kasir/pilihhadiah');
-                    }else{
-                        $postToNS = $this->netsuite_models->postToNetsuite($dt);
-                        $object=(array)json_decode($postToNS);
-                        
-                        var_dump($object);
-                        die;
-                        $object[1]->poin =floor($object[1]->poin);
-                        $session->set('earn_loyalty',$object[1]);
-                        if($object[1]->status=='succes'){
-                            return redirect()->to('/kasir/terimakasih');
-                        }
+                    $postToNS = $this->netsuite_models->postToNetsuite($dt);
+                    $object=(array)json_decode($postToNS);
+                    if($object[1]->status=='succes'){
+                        return redirect()->to('/profile/inputstruck');
                     }
+                    // var_dump($object);
+                    // die;
+                    // die(var_dump($dt));
+                    // if($jmlPembelanjaan >= 500000){
+                    //     $session->set('input_struck_form',$dt);
+                    //     return redirect()->to('//pilihhadiah');
+                    // }else{
+                    //     $postToNS = $this->netsuite_models->postToNetsuite($dt);
+                    //     $object=(array)json_decode($postToNS);
+                        
+                    //     var_dump($object);
+                    //     die;
+                    //     $object[1]->poin =floor($object[1]->poin);
+                    //     $session->set('earn_loyalty',$object[1]);
+                    //     if($object[1]->status=='succes'){
+                    //         return redirect()->to('/kasir/terimakasih');
+                    //     }
+                    // }
                 }
             }
         }else{
