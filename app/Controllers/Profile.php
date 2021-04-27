@@ -22,7 +22,25 @@ class Profile extends BaseController
         $noHp=session()->get('user_customer')->phone;
         // die($noHp);
         $getFrom = $this->netsuite_models->getCustomer($noHp);
-        // var_dump($getFrom);
+        $data['promo']=array(
+            array(
+                "img"=>"https://via.placeholder.com/600/92c952",
+                "desc"=>"Promo 1 Description"
+            ),
+            array(
+                "img"=>"https://via.placeholder.com/600/771796",
+                "desc"=>"Promo 2 Description"
+            ),
+            array(
+                "img"=>"https://via.placeholder.com/600/24f355",
+                "desc"=>"Promo 3 Description"
+            ),
+        );
+        $idRec =session()->get('user_customer')->internalid;
+        $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
+        $poin=0;
+        $kupon=0;
+        $data['poin']=
         $data['user_customer']=$getFrom;
         session()->set('user_customer',$getFrom);
         return view('home',$data);

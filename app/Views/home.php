@@ -51,20 +51,32 @@ session_start()
             </div>
             <div class="content">
                 <div class="banner-promo">
-                    <img src="" alt="">
+                    <?php for ($i=0; $i < count($promo); $i++) { ?>
+                        <div class="banner-item">
+
+                            <img src="<?php echo $promo[$i]['img']?>" alt="<?php echo $promo[$i]['img']?>">
+                            <span class="banner-desc">
+                                <?php echo $promo[$i]['desc']?>
+                            </span>
+                        </div>
+                    <?php } ?>
+                    <div class="btn-control-container">
+                        <button id='prev' class='btn-image-control btn-profile'>Prev</button>
+                        <button id='next' class='btn-image-control btn-profile'>Next</button>
+                    </div>
                 </div>
                 <div class="greeting">
-                    <h1>Selamat Datang Kembali <span><?php echo $user_customer->companyname;?></span></h1>
+                    <h1>Selamat Datang Kembali <span class='sorot'><?php echo $user_customer->companyname;?></span>,anda telah berhasil mengumpulkan</h1>
                     <ul class='poin-menu'>
-                        <li >XX Poin</li>
-                        <li>XX Poin Keluarga Lavie</li>
+                        <li ><span class='sorot'><?php echo $kupon ?></span> Poin</li>
+                        <li><span class='sorot'><?php echo $poin ?></span> Poin Keluarga Lavie</li>
                     </ul>
                 </div>
             </div> 
         </div>
     </div>
     <!-- JS -->
-    <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>/public/js/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
     <script>
         // document.getElementById('tgllahir').valueAsDate = new Date();
@@ -76,6 +88,41 @@ session_start()
 
          return true;
       }
+
+
+    //   image slider
+    let index=0;
+    let items=document.getElementsByClassName('banner-item')
+    let count=items.length
+
+    items[0].style.display ='block';
+
+    const btnNext=document.getElementById('next')
+    const btnPrev=document.getElementById('prev')
+
+    btnNext.addEventListener('click',()=>{
+        if(index < count -1) index +=1;
+        slide();
+    })
+
+    btnPrev.addEventListener('click',()=>{
+        if(index > 0) index -=1;
+        slide();
+    })
+
+    function slide(){
+       for (let i = 0; i < items.length; i++) {
+           const item = items[i];
+           item.style.display ='none' 
+       }
+       items[index].style.display ='block'
+    }
+
+    let autoSlide= setInterval(() => {
+        index +=1;
+        if(index >=count) index=0
+        slide();
+    }, 5000);
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

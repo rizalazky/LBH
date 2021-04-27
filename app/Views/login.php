@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="<?php echo base_url()?>/public/css/style.css">
 </head>
 
-<body>
-    <img class="banner" src="<?php echo base_url()?>/public/img/banner.jpeg" alt="">
-    <div class="main">
-        <section class="signup">
+<body style="background-image: url('<?php echo base_url()?>/public/img/banner.jpeg');background-size: cover;min-height: 99vh;">>
+    <div class="main" >
+        <section class="signup" >
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             
-            <div class="container">
+            <div class="container" >
                 <div class="signup-content">
                     <form action="<?= base_url('/auth')?> " method="POST" id="signup-form" class="signup-form">
                         <img class="logo" src="<?php echo base_url()?>/public/img/logo.png" alt="">

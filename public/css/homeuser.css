@@ -167,7 +167,10 @@ list-type-ulli {
   background-color: #4c9585;
   color: white;
   text-align: center;
+  font-family: "VAG Rounded";
+  text-decoration: none;
 }
+
 
 .navbar-item:hover{
   color: #4c9585;
@@ -189,7 +192,38 @@ list-type-ulli {
   width: 100%;
   background-color: grey;
   height: 400px;
+  position: relative;
 }
+
+.banner-item{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.banner-item img{
+  width: 100%;
+  height: 100%;
+}
+
+.banner-desc{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: "VAG Rounded";
+  font-size: medium;
+  color: #FFFF;
+  font-weight: 500;
+}
+
+.btn-control-container{
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 
 .greeting{
   width: 100%;
@@ -198,11 +232,24 @@ list-type-ulli {
   /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   padding: 20px;
+  margin-top: 40px;
 }
+
+.greeting h1{
+  font-family: "VAG Rounded";
+
+}
+
+.sorot{
+  color: #db2082;
+}
+
 
 .poin-menu li{
   list-style: none;
   padding: 10px;
+  font-size: x-large;
+  font-family: "VAG Rounded";
 }
 
 .container-table-history{
