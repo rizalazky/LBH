@@ -110,6 +110,101 @@ list-type-ulli {
 }
 
 
+
+.container{
+  /* background-color: #E7218C;
+   */
+   background-image: url('../img/banner.jpeg');
+   background-size: cover;
+  padding-top: 20px;
+  min-height: 99vh;
+}
+
+
+.header{
+  display: flex;
+  /* margin: 20px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-profile{
+  margin-right: 20px;
+  padding: 10px 25px;    /* color: ; */
+  background-color:#db2082 ;
+  color: #FFFF;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  /* margin-bottom: 14px; */
+  font-family: "Frankfurter";
+}
+
+.btn-back{
+  padding: 10px;
+  outline: none;
+  background-color: #db2082;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  font-family: "Frankfurter";
+}
+
+.navigation{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.home{
+
+}
+
+.navbar{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu{
+  background-color: #4c9585;
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.navbar-item{
+  padding: 10px;
+  background-color: #4c9585;
+  color: white;
+  text-align: center;
+  font-family: "VAG Rounded";
+  text-decoration: none;
+}
+
+
+.navbar-item:hover{
+  color: #4c9585;
+  background-color: white;
+}
+
+
+.content{
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+  padding-left: 25%;
+  padding-right: 25%;
+  position: relative;
+}
+
+
+
 .main{
     background-image: url('../img/banner.jpeg');
     background-size: cover;
@@ -125,26 +220,16 @@ list-type-ulli {
 }
 
 
-.container{
-    padding: 20px;
-}
-.btn{
-    padding: 10px;
-    outline: none;
-    background-color: #db2082;
-    border: none;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-}
 
 
 
 #dynamic_field{
+  margin-top: 60px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+   
 }
 .form{
     background-color: white;
@@ -224,5 +309,30 @@ label {
 @media screen and (max-width: 768px) {
   .navigation{
     top: 170px;
+  }
+  .content{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+  }
+  .btn-back{
+    padding: 10px;
+    outline: none;
+    background-color: #db2082;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: 20px;
+  }
+  .btn-profile{
+    position: absolute;
+    top: 120px;
+    right: 0;
+    margin-right:0 ;
   }
 }

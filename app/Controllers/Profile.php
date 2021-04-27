@@ -102,7 +102,8 @@ class Profile extends BaseController
                     $postToNS = $this->netsuite_models->postToNetsuite($dt);
                     $object=(array)json_decode($postToNS);
                     if($object[1]->status=='succes'){
-                        return redirect()->to('/profile/inputstruck');
+                        // return redirect()->to('/profile/inputstruck');
+                        echo "<script>alert('Berhasil Disimpan');window.location.href='".base_url()."/profile/inputstruck'</script>";
                     }
                     // var_dump($object);
                     // die;

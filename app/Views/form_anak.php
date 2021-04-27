@@ -1,3 +1,15 @@
+<?php
+
+session_start()
+
+?>
+
+<?php
+
+session_start()
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,29 +17,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Detail Data Anak</title>
+    <title>Welcome</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="<?php echo base_url('/public')?>/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>/public/fonts/material-icon/css/material-design-iconic-font.min.css">
 
+    <!-- Main css -->
+    <!-- <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css"> -->
+    <!-- <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/profile_user.css"> -->
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url('/public')?>/css/detail_anakpage.css">
 </head>
 
 <body>
-
-    <!-- <img class="banner" src="<?php echo base_url('/public')?>/img/banner.jpeg" alt=""> -->
-    <div class="main">
-            <div class="header">
-                <img class="logo" src="<?php echo base_url() ?>/public/img/logo.png" alt="">
-                <div class="navigation">
-                    <a class="btn" style='text-decoration:none;' href="<?php echo base_url()?>/logout">Logout</a>
+    <!-- <img class="banner" src="<?php echo base_url() ?>/public/img/banner.jpeg" alt=""> -->
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="<?php echo base_url() ?>/public/img/logo.png" alt="">
+            <div class="navigation">
+                <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url()?>/logout">Logout</a>
+            </div>
+        </div>
+        <div class="home">
+            <div class='navbar'>
+                <div class="navbar-menu">
+                    <a class="navbar-item" href="<?php echo base_url('/profile');?>">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/profile');?>">
+                        Profile
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/inputstruck');?>">
+                        Input Struck
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/daftarhadiah');?>">
+                        Daftar Hadiah
+                    </a>
+                    <a class="navbar-item" href="<?php echo base_url('/profile/history');?>">
+                        Lihat History
+                    </a>
                 </div>
             </div>
-            <div class="container">
-                <a class="btn" style='text-decoration:none;' href="<?php echo base_url()?>/profile/">Back</a>
-                <!-- <button type="button" name="add" id="add" class="btn btn-success">Tambah</button> -->
+            <div class="content">
+                <a class="btn-back" style='text-decoration:none;' href="<?php echo base_url()?>/profile/profile">Back</a>
                 <div id="dynamic_field">
                     <?php 
                     $urutanArray=array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","kesepuluh");
@@ -96,54 +128,23 @@
                         </div>
                     <?php  }} ?>
                 </div>
-            </div>
+            </div> 
+        </div>
     </div>
-
-    </div>
-
     <!-- JS -->
-    <script src="<?php echo base_url('/public')?>/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url('/public')?>/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    <script src="<?php echo base_url() ?>/public/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>/public/js/main.js"></script>
+    <script>
+        // document.getElementById('tgllahir').valueAsDate = new Date();
+        function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+    </script>
+</body>
 
 </html>
-<script>
-    $(document).ready(function() {
-        var i = 2;
-        $('#add').click(function() {
-            let htmlForm=`
-            <div class="form" id="form_${i}">
-                        <button class="btn_remove" id="${i}">x</button>
-                        <form  method="POST" action="<?php echo base_url()?>/profile/detail_anak/save">
-                            <div class="signup-content">
-                                <h2 class="form-title">Detail Anak</h2>
-                                    <div class="form-group">
-                                        <label for="nama">Nama Anak: ${i}</label>
-                                        <input type="text" class="form-input" name="namaanak[]" id="namaanak" placeholder="Masukkan nama anak" />
-                                        <label for="nama">Tgl Lahir:</label>
-                                        <input type="date" class="form-input" name="tgllahir[]" id="tgllahir" placeholder="Masukkan tanggal lahir anak" />
-                                        <label for="nama">Jenis Kelamin:</label>
-                                        <select name="jeniskelamin" class="form-input" id="">
-                                            <option value="1">Laki-Laki</option>
-                                            <option value="2">Perempuan</option>
-                                        </select>
-                                        <input type="submit" name="submit" id="submit" class="form-submit" value="Save" />
-                                    </div>
-                                <!-- <button type="button" name="add" id="add" class="btn btn-success">Save</button> -->
-                            </div>
-                        </form>
-                    </div>
-            `;
-            let formLama='<div class="addData" id="rowData' + i + '"> <div class="form-group">     <label for="nama">Nama Anak : ' + i + '</label>    <input type="text" class="form-input" name="namaanak[]" id="namaanak" placeholder="Masukkan nama anak" /></div><div class="form-group">    <label for="nama">Tgl Lahir:</label>    <input type="text" class="form-input" name="tgllahir[]" id="tgllahir" placeholder="Masukkan tanggal lahir anak" /></div><div class="form-group">    <label for="nama">Jenis Kelamin:</label>    <input type="text" class="form-input" name="notelp[]" id="notelp" placeholder="Masukkan jenis kelamin anak" /></div><button name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></div> '
-            i++;
-            $('#dynamic_field').append(htmlForm);
-        });
-        $(document).on('click', '.btn_remove', function(e) {
-            var button_id = $(this).attr('id');
-            // console.log("MASUK : " + button_id)
-            console.log(e)
-            $('#form_' + button_id + '').remove();
-            i--;
-        });
-    })
-</script>
