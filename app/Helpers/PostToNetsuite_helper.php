@@ -176,6 +176,61 @@ function getAllLocation(){
     return json_decode($response);        
 }
 
+function getPromo(){
+  $oauth_nonce = md5(mt_rand());
+  $oauth_timestamp = time();
+  $oauth_signature_method = 'HMAC-SHA256';
+  $oauth_version = "1.0";
+
+  $base_string =
+      "GET&" . urlencode(NETSUITE_URL) ."&".
+      urlencode(
+          "deploy=" . NETSUITE_DEPLOY_ID
+              . "&oauth_consumer_key=" . NETSUITE_CONSUMER_KEY
+              . "&oauth_nonce=" . $oauth_nonce
+              . "&oauth_signature_method=" . $oauth_signature_method
+              . "&oauth_timestamp=" . $oauth_timestamp
+              . "&oauth_token=" . NETSUITE_TOKEN_ID
+              . "&oauth_version=" . $oauth_version
+              . "&record_type=get_promo"
+              . "&script=" . NETSUITE_SCRIPT_ID
+      );
+  
+  $sig_string = urlencode(NETSUITE_CONSUMER_SECRET) . '&' . urlencode(NETSUITE_TOKEN_SECRET);
+  $signature = base64_encode(hash_hmac("sha256", $base_string, $sig_string, true));
+
+  $header='Authorization: OAuth realm="'. rawurlencode(NETSUITE_ACCOUNT) .'",'
+  .'oauth_consumer_key="'. rawurlencode(NETSUITE_CONSUMER_KEY).'",'
+  .'oauth_token="'.rawurlencode(NETSUITE_TOKEN_ID).'",'
+  .'oauth_signature_method="'.$oauth_signature_method.'",'
+  .'oauth_timestamp="'.$oauth_timestamp.'",'
+  .'oauth_nonce="'.$oauth_nonce.'",'
+  .'oauth_version="'.$oauth_version.'",'
+  .'oauth_signature="'.urlencode($signature).'"';
+
+  $curl = curl_init();
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://7131410.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=11&deploy=2&record_type=get_promo',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_POSTFIELDS =>'',
+    CURLOPT_HTTPHEADER => array(
+      $header,
+      'Content-Type: application/json'
+    ),
+  ));
+
+  $response = curl_exec($curl);
+
+  curl_close($curl);
+  return json_decode($response);        
+}
+
 
 function getDetailAnak($idRec){
     $oauth_nonce = md5(mt_rand());

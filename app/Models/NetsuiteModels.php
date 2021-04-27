@@ -48,6 +48,10 @@ class NetsuiteModels extends Model
         return getAllLocation();
     }
 
+    public function getPromo(){
+        return getPromo();
+    }
+
 
     public function getDetailAnak($idRec){
         return getDetailAnak($idRec);

@@ -22,20 +22,20 @@ class Profile extends BaseController
         $noHp=session()->get('user_customer')->phone;
         // die($noHp);
         $getFrom = $this->netsuite_models->getCustomer($noHp);
-        $data['promo']=array(
-            array(
-                "img"=>"https://via.placeholder.com/600/92c952",
-                "desc"=>"Promo 1 Description"
-            ),
-            array(
-                "img"=>"https://via.placeholder.com/600/771796",
-                "desc"=>"Promo 2 Description"
-            ),
-            array(
-                "img"=>"https://via.placeholder.com/600/24f355",
-                "desc"=>"Promo 3 Description"
-            ),
-        );
+        // $data['promo']=array(
+        //     array(
+        //         "img"=>"https://via.placeholder.com/600/92c952",
+        //         "desc"=>"Promo 1 Description"
+        //     ),
+        //     array(
+        //         "img"=>"https://via.placeholder.com/600/771796",
+        //         "desc"=>"Promo 2 Description"
+        //     ),
+        //     array(
+        //         "img"=>"https://via.placeholder.com/600/24f355",
+        //         "desc"=>"Promo 3 Description"
+        //     ),
+        // );
         $idRec =session()->get('user_customer')->internalid;
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
         $poin=0;
@@ -48,6 +48,9 @@ class Profile extends BaseController
         $data['poin']=$poin;
         $data['kupon']=$kupon;
         $data['user_customer']=$getFrom;
+        $getPromo = $this->netsuite_models->getPromo();
+        // var_dump($getPromo);die;
+        $data['promo']=$getPromo;
         session()->set('user_customer',$getFrom);
         return view('home',$data);
     }

@@ -51,15 +51,19 @@ session_start()
             </div>
             <div class="content">
                 <div class="banner-promo">
-                    <?php for ($i=0; $i < count($promo); $i++) { ?>
+                    <?php 
+                    if($promo){
+                        for ($i=0; $i < count($promo); $i++) { ?>
                         <div class="banner-item">
 
-                            <img src="<?php echo $promo[$i]['img']?>" alt="<?php echo $promo[$i]['img']?>">
+                            <img src="<?php echo $promo[$i]->image_url?>" alt="<?php echo $promo[$i]->image_url?>">
                             <span class="banner-desc">
-                                <?php echo $promo[$i]['desc']?>
+                                <?php echo $promo[$i]->promo_name?>
                             </span>
                         </div>
-                    <?php } ?>
+                    <?php } 
+                    }
+                    ?>
                     <div class="btn-control-container">
                         <button id='prev' class='btn-image-control btn-profile'>Prev</button>
                         <button id='next' class='btn-image-control btn-profile'>Next</button>
