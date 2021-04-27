@@ -57,16 +57,9 @@ class Pendaftaran extends BaseController
                     // var_dump($postTo);
                     // die;
                     if($postTo->status == "succes"){
-                        // $data=array(
-                        //     "companyname"=>$namalengkap,
-                        //     "email"=>$email,
-                        //     "phone"=>$nohp,
-                        //     "internalid"=>$balikan->record_id,
-                        // );
-                        // // $getFrom = $this->netsuite_models->getCustomer($noHp);
-                        
-                        // session()->set('user_customer',$data);
                         return redirect()->to('/login');
+                    }else if($postTo->status == "isExist"){
+                        echo "<script>alert('".$postTo->message."');window.location.href='".base_url('/pendaftaran')."'</script>";
                     }else{
                         die('Error');
                     }
