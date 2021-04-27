@@ -68,7 +68,7 @@ session_start()
                 <div class="greeting">
                     <h1>Selamat Datang Kembali <span class='sorot'><?php echo $user_customer->companyname;?></span>,anda telah berhasil mengumpulkan</h1>
                     <ul class='poin-menu'>
-                        <li ><span class='sorot'><?php echo $kupon ?></span> Poin</li>
+                        <li ><span class='sorot'><?php echo $kupon ?></span> Kupon</li>
                         <li><span class='sorot'><?php echo $poin ?></span> Poin Keluarga Lavie</li>
                     </ul>
                 </div>
