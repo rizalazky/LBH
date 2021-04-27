@@ -45,6 +45,12 @@ $routes->post('/profile_user/detail_anak/save', 'Profile::post_profile');
 $routes->get('/inputstruk', 'InputStruk::index');
 $routes->post('/inputstruk/save', 'InputStruk::post_struk');
 
+$routes->get('/profile','Profile::index',['filter' => 'auth_customer']);
+$routes->get('/profile/profile','Profile::profile',['filter' => 'auth_customer']);
+$routes->get('/profile/inputstruck','Profile::inputStruck',['filter' => 'auth_customer']);
+$routes->get('/profile/daftarhadiah','Profile::daftarhadiah',['filter' => 'auth_customer']);
+$routes->get('/profile/history','Profile::history',['filter' => 'auth_customer']);
+
 // kasir
 $routes->get('/kasir/login','C_Auth_Kasir::index');
 $routes->post('/kasir/auth','C_Auth_Kasir::auth');
