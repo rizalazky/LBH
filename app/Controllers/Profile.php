@@ -38,9 +38,10 @@ class Profile extends BaseController
         );
         $idRec =session()->get('user_customer')->internalid;
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-        $poin=0;
-        $kupon=0;
-        $data['poin']=
+        $poin=150;
+        $kupon=15;
+        $data['poin']=$poin;
+        $data['kupon']=$kupon;
         $data['user_customer']=$getFrom;
         session()->set('user_customer',$getFrom);
         return view('home',$data);
