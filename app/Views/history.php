@@ -83,7 +83,7 @@ session_start()
         </div>
     </div>
     <!-- JS -->
-    <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>/public/js/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
     <script>
