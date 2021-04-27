@@ -122,7 +122,7 @@ session_start()
         index +=1;
         if(index >=count) index=0
         slide();
-    }, 5000);
+    }, 2000);
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
