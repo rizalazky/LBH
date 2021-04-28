@@ -43,8 +43,8 @@ class C_Auth_Kasir extends BaseController
             }
         }
         $data = $this->M_Login->login($username,$password,$location);
-        // var_dump($data);
-        if($data->username){
+        
+        if($data->status == "found"){
             $ses_data = [
                 'email'       => '',
                 'username'    => $username,

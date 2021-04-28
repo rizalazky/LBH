@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="<?php echo base_url()?>/public/css/style.css">
 </head>
 
-<body style="background-image: url('<?php echo base_url()?>/public/img/banner.jpeg');background-size: cover;min-height: 99vh;">>
+<body style="background-image: url('<?php echo base_url()?>/public/img/banner.jpeg');background-size: cover;min-height: 99vh;">
     <div class="main" >
         <section class="signup" >
+
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             
             <div class="container" >

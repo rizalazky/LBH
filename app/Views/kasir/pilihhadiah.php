@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="<?php echo base_url()?>/public/css/style.css">
 </head>
 
-<body>
-    <img class="banner" src="<?php echo base_url()?>/public/img/banner.jpeg" alt="">
+<body style="background-image: url('<?php echo base_url()?>/public/img/banner.jpeg');background-size: cover;min-height: 99vh;">
+    <!-- <img class="banner" src="<?php echo base_url()?>/public/img/banner.jpeg" alt=""> -->
     <div class="main">
         <section class="signup">
         <button class='btn-logout'><a href="<?php echo base_url()?>/kasir/logout">Logout</a></button>

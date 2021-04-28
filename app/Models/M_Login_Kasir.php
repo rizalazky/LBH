@@ -12,7 +12,7 @@ class M_Login_Kasir extends Model
     }
     
     public function login($username,$password,$location){
-        $cek=login($username,$password,$location);
+        $cek=login_multi_loc($username,$password,$location);
         return $cek;
     }
 
