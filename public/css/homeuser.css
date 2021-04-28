@@ -119,6 +119,19 @@ list-type-ulli {
 }
 
 
+/* container history page ==> dibuat karena bertabrakan dengan bootstrap */
+.container-historypage{
+  /* background-color: #E7218C;
+   */
+   background-image: url('../img/banner.jpeg');
+   background-size: cover;
+  padding-top: 20px;
+  min-height: 99vh;
+}
+
+/* container history page ==> dibuat karena bertabrakan dengan bootstrap */
+
+
 .header{
   display: flex;
   /* margin: 20px; */

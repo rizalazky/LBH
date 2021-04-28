@@ -109,7 +109,66 @@ list-type-ulli {
   margin: 0;
 }
 
+.container{
+  /* background-color: #E7218C;
+   */
+   background-image: url('../img/banner.jpeg');
+   background-size: cover;
+  padding-top: 20px;
+  min-height: 99vh;
+}
 
+.navigation{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.home{
+
+}
+
+.navbar{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu{
+  /* background-color: #4c9585; */
+  /* opacity: 0.7; */
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.navbar-item{
+  padding: 15px;
+  opacity: 1;
+  /* background-color: #4c9585; */
+  color: #4c9585;;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "VAG Rounded";
+  /* text-decoration: none; */
+}
+
+
+.navbar-item:hover{
+  /* color: #4c9585; */
+  /* background-color: white; */
+}
+
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 25%;
+  padding-right: 25%;
+}
 .header{
   display: flex;
   /* margin: 20px; */

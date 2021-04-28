@@ -57,12 +57,11 @@ session_start()
                     ?>
                         <div class="daftar-hadiah-item">
                             <div class='list-gambar'>
-                                <img src="<?php echo $daftar_hadiah[$i]['img']?>" alt="">
+                                <img src="<?php echo $daftar_hadiah[$i]->img?>" alt="">
                             </div>
                             <div class='desc'>
-                                <h3><?php echo $daftar_hadiah[$i]['namahadiah']?></h3>
-                                <h3><?php echo $daftar_hadiah[$i]['desc']?></h3>
-                                <h3><?php echo $daftar_hadiah[$i]['poindibutuhkan']?> Poin</h3>
+                                <h3><?php echo $daftar_hadiah[$i]->namahadiah?></h3>
+                                <h3><?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin</h3>
                             </div>
                         </div>
                     <?php

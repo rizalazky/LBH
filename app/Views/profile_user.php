@@ -23,7 +23,7 @@ session_start()
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/profile_user.css">
 </head>
 

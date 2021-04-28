@@ -108,24 +108,7 @@ class Profile extends BaseController
                         // return redirect()->to('/profile/inputstruck');
                         echo "<script>alert('Berhasil Disimpan');window.location.href='".base_url()."/profile/inputstruck'</script>";
                     }
-                    // var_dump($object);
-                    // die;
-                    // die(var_dump($dt));
-                    // if($jmlPembelanjaan >= 500000){
-                    //     $session->set('input_struck_form',$dt);
-                    //     return redirect()->to('//pilihhadiah');
-                    // }else{
-                    //     $postToNS = $this->netsuite_models->postToNetsuite($dt);
-                    //     $object=(array)json_decode($postToNS);
-                        
-                    //     var_dump($object);
-                    //     die;
-                    //     $object[1]->poin =floor($object[1]->poin);
-                    //     $session->set('earn_loyalty',$object[1]);
-                    //     if($object[1]->status=='succes'){
-                    //         return redirect()->to('/kasir/terimakasih');
-                    //     }
-                    // }
+                   
                 }
             }
         }else{
@@ -145,31 +128,12 @@ class Profile extends BaseController
     }
 
     public function daftarhadiah(){
-        $daftarHadiah=array(
-            array(
-                "namahadiah"=>"Hadiah Pertama",
-                "desc"=>"deskripsi",
-                "img"=>"https://picsum.photos/300/200",
-                "poindibutuhkan"=>1200
-            ),
-            array(
-                "namahadiah"=>"Hadiah kedua",
-                "desc"=>"deskripsi",
-                "img"=>"https://picsum.photos/300/200",
-                "poindibutuhkan"=>13
-            ),
-            array(
-                "namahadiah"=>"Hadiah ketiga",
-                "desc"=>"deskripsi",
-                "img"=>"https://picsum.photos/300/200",
-                "poindibutuhkan"=>15
-            ),
-        );
+        
         $getAllHadiah = $this->netsuite_models->getAllHadiah();
         // var_dump($getAllHadiah);
         // die;
-        // $data['daftar_hadiah']=(array) $getAllHadiah;
-        $data['daftar_hadiah']=$daftarHadiah;
+        $data['daftar_hadiah']=(array) $getAllHadiah;
+        // $data['daftar_hadiah']=$daftarHadiah;
         return view('daftar_hadiah',$data);
     }
 
@@ -213,7 +177,7 @@ class Profile extends BaseController
         if($results->status=="succes"){
             return redirect()->to('/profile/form_anak/'.session()->get('user_customer')->jumlahanak);
         }else{
-            echo "<script>alert('Gagal Update Data Customer');window.location.href='".base_url('/profile')."'</script>";
+            echo "<script>alert('Gagal Update Data Customer');window.location.href='".base_url('/profile/profile')."'</script>";
         }
     }
 
@@ -256,9 +220,9 @@ class Profile extends BaseController
         // die;
         if($results->status=="succes"){
             // session()->set('user_customer',$data);
-            return redirect()->to('/profile');
+            return redirect()->to('/profile/profile');
         }else{
-            echo "<script>alert('Gagal Update Data Customer');window.location.href='".base_url('/profile')."'</script>";
+            echo "<script>alert('Gagal Update Data Customer');window.location.href='".base_url('/profile/profile')."'</script>";
         }
     }
 
