@@ -165,6 +165,10 @@ class Profile extends BaseController
                 "poindibutuhkan"=>15
             ),
         );
+        $getAllHadiah = $this->netsuite_models->getAllHadiah();
+        // var_dump($getAllHadiah);
+        // die;
+        // $data['daftar_hadiah']=(array) $getAllHadiah;
         $data['daftar_hadiah']=$daftarHadiah;
         return view('daftar_hadiah',$data);
     }

@@ -156,25 +156,29 @@ list-type-ulli {
 }
 
 .navbar-menu{
-  background-color: #4c9585;
+  /* background-color: #4c9585; */
+  /* opacity: 0.7; */
   display: flex;
   justify-content: space-around;
   width: 50%;
 }
 
 .navbar-item{
-  padding: 10px;
-  background-color: #4c9585;
-  color: white;
+  padding: 15px;
+  opacity: 1;
+  /* background-color: #4c9585; */
+  color: #4c9585;;
+  font-size: 20px;
+  font-weight: 500;
   text-align: center;
   font-family: "VAG Rounded";
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 
 .navbar-item:hover{
-  color: #4c9585;
-  background-color: white;
+  /* color: #4c9585; */
+  /* background-color: white; */
 }
 
 
@@ -183,15 +187,15 @@ list-type-ulli {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .banner-promo{
   margin: 40px;
   width: 100%;
-  background-color: grey;
-  height: 400px;
+  /* background-color: grey; */
+  height: 650px;
   position: relative;
 }
 

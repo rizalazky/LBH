@@ -74,7 +74,7 @@ session_start()
     </div>
     
     <!-- JS -->
-    <script src="<?php echo base_url() ?>/public/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>/public/js/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>/public/js/main.js"></script>
     <script>
         // document.getElementById('tgllahir').valueAsDate = new Date();

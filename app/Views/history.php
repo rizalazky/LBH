@@ -18,7 +18,10 @@ session_start()
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
+    
 
 </head>
 
@@ -53,7 +56,7 @@ session_start()
             </div>
             <div class="content">
                 <div class='container-table-history'>
-                    <table width="100%" id="table-history">
+                    <table width="100%" id="table-history" class="table table-striped table-bordered">
                         <thead>
                                 <th>Tanggal</th>
                                 <th>Total Belanja</th>
