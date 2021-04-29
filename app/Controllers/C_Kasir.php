@@ -143,8 +143,7 @@ class C_Kasir extends BaseController
                         $postToNS = $this->netsuite_models->postToNetsuite($dt);
                         $object=(array)json_decode($postToNS);
                         
-                        var_dump($object);
-                        die;
+                     
                         $object[1]->poin =floor($object[1]->poin);
                         $session->set('earn_loyalty',$object[1]);
                         if($object[1]->status=='succes'){
