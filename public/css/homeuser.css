@@ -123,8 +123,8 @@ list-type-ulli {
 .container-historypage{
   /* background-color: #E7218C;
    */
-   background-image: url('../img/banner.jpeg');
-   background-size: cover;
+  background-image: url('../img/banner.jpeg');
+  background-size: cover;
   padding-top: 20px;
   min-height: 99vh;
 }

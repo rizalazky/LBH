@@ -21,7 +21,18 @@ session_start()
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
-    
+    <style>
+        #table-history tbody tr:nth-of-type(odd){
+            background-color: #F3F3F3;
+            /* background-color: rgba(0, 0, 0, 0.05); */
+            /* opacity: 0.2; */
+        }
+        #table-history tbody tr:nth-of-type(event){
+            background-color: white;
+            /* background-color: rgba(0, 0, 0, 0.05); */
+            /* opacity: 0.2; */
+        }
+    </style>
 
 </head>
 
@@ -56,7 +67,7 @@ session_start()
             </div>
             <div class="content">
                 <div class='container-table-history'>
-                    <table width="100%" id="table-history" class="table table-striped table-bordered">
+                    <table width="100%;" id="table-history" class="table">
                         <thead>
                                 <th>Tanggal</th>
                                 <th>Total Belanja</th>
@@ -95,14 +106,13 @@ session_start()
             $('#table-history').DataTable();
         } );
         // document.getElementById('tgllahir').valueAsDate = new Date();
-        function isNumberKey(evt)
-      {
-         var charCode = (evt.which) ? evt.which : event.keyCode
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
 
-         return true;
-      }
+            return true;
+        }
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
