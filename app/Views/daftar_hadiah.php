@@ -60,8 +60,8 @@ session_start()
                                 <img src="<?php echo $daftar_hadiah[$i]->img?>" alt="">
                             </div>
                             <div class='desc'>
-                                <h3><?php echo $daftar_hadiah[$i]->namahadiah?></h3>
-                                <h3><?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin</h3>
+                                <span class='title'><?php echo $daftar_hadiah[$i]->namahadiah?></span>
+                                <span class='poin-ne'><?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin</span>
                             </div>
                         </div>
                     <?php

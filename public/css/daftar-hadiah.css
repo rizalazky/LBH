@@ -123,14 +123,17 @@ list-type-ulli {
   margin: 10px;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  width: 350px;
+  /* height: 470px; */
   background-color: white;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .list-gambar{
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  /* height: 400px; */
 }
 
 .list-gambar img{
@@ -138,10 +141,25 @@ list-type-ulli {
   height: 100%;
 }
 
-
-
 .desc{
+  background-color: #f7f7f9;
+  height: 100%;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.25); */
   padding: 10px;
+}
+
+.desc .title{
+  font-family: "VAG Rounded";
+  font-size: 25px;
+  font-weight: 500;
+  display: block;
+}
+
+.desc .poin-ne{
+  font-family: "VAG Rounded";
+  font-size: 20px;
+  font-weight: 500;
+  display: block;
 }
 
 

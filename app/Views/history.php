@@ -22,16 +22,11 @@ session_start()
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
     <style>
-        #table-history tbody tr:nth-of-type(odd){
-            background-color: #F3F3F3;
-            /* background-color: rgba(0, 0, 0, 0.05); */
-            /* opacity: 0.2; */
+        .container-table-history{
+            /* opacity:0.2; */
+            /* background:none; */
         }
-        #table-history tbody tr:nth-of-type(event){
-            background-color: white;
-            /* background-color: rgba(0, 0, 0, 0.05); */
-            /* opacity: 0.2; */
-        }
+        
     </style>
 
 </head>
@@ -67,9 +62,9 @@ session_start()
             </div>
             <div class="content">
                 <div class='container-table-history'>
-                    <table width="100%;" id="table-history" class="table">
-                        <thead>
-                                <th>Tanggal</th>
+                    <table width="100%;" id="table-history" class="table table-striped">
+                        <thead >
+                                <th >Tanggal</th>
                                 <th>Total Belanja</th>
                                 <th>Hadiah</th>
                                 <th>Poin</th>

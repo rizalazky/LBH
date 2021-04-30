@@ -18,6 +18,7 @@ session_start()
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/homeuser.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
@@ -54,9 +55,9 @@ session_start()
                     <?php 
                     if($promo){
                         for ($i=0; $i < count($promo); $i++) { ?>
-                        <div class="banner-item">
+                        <div class="banner-item w3-animate-fading">
 
-                            <img src="<?php echo $promo[$i]->image_url?>" alt="<?php echo $promo[$i]->image_url?>">
+                            <img src="<?php echo $promo[$i]->image_url?>" alt="<?php echo $promo[$i]->image_url?>" >
                             <span class="banner-desc">
                                 <?php echo $promo[$i]->promo_name?>
                             </span>
@@ -72,8 +73,12 @@ session_start()
                 <div class="greeting">
                     <h1>Selamat Datang Kembali <span class='sorot'><?php echo $user_customer->companyname;?></span>,anda telah berhasil mengumpulkan</h1>
                     <ul class='poin-menu'>
-                        <li ><span class='sorot'><?php echo $kupon ?></span> Kupon</li>
-                        <li><span class='sorot'><?php echo $poin ?></span> Poin Keluarga Lavie</li>
+                        <li>
+                            <span class='sorot'><?php echo $kupon ?></span> Kupon
+                        </li>
+                        <li>
+                            <span class='sorot'><?php echo $poin ?></span> Poin Keluarga Lavie
+                        </li>
                     </ul>
                 </div>
             </div> 
@@ -126,7 +131,7 @@ session_start()
         index +=1;
         if(index >=count) index=0
         slide();
-    }, 2000);
+    }, 4000);
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
