@@ -210,7 +210,8 @@ class C_Kasir extends BaseController
     }
 
     public function terimakasih(){
-        $data['earn_loyalty']=$session['earn_loyalty'];
+        // $session=session();
+        // $data['earn_loyalty']=$session->get('earn_loyalty');
         // die(var_dump($data));
         return view('kasir/terimakasih',$data);
     }
