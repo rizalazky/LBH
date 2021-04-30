@@ -106,7 +106,8 @@ class C_Kasir extends BaseController
         $data['customer']=$session->get('customer');
         if(isset($_POST['submit'])){
             $jmlPembelanjaan=preg_replace('/[^0-9]/', '', $_POST['jmlbelanja']);
-            
+            // echo $session->get('user')->location;
+            // die;
             $nostruk=$_POST['nostruk'];
             $tgltransaksi=explode("-",$_POST['tgltransaksi']);
 
@@ -136,7 +137,7 @@ class C_Kasir extends BaseController
                         "id_customer"=>$session->get('customer')->internalid
                     );
                     // die(var_dump($dt));
-                    if($jmlPembelanjaan >= 500000){
+                    if($jmlPembelanjaan >= 500000 || $session->get('user')->location == 13){
                         $session->set('input_struck_form',$dt);
                         return redirect()->to('/kasir/pilihhadiah');
                     }else{
