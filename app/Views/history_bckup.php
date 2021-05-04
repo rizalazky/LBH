@@ -62,7 +62,7 @@ session_start()
             </div>
             <div class="content">
                 <div class='container-table-history'>
-                    <!-- <table width="100%;" id="table-history" class="table table-striped">
+                    <table width="100%;" id="table-history" class="table table-striped">
                         <thead >
                                 <th >Tanggal</th>
                                 <th>Total Belanja</th>
@@ -86,33 +86,7 @@ session_start()
                             ?>
                             
                         </tbody>
-                    </table> -->
-                    <?php
-                        for ($i=0; $i < count($history_reward);$i++) { 
-                            if(($i>=0 && $history_reward[$i]->tanggal !== $history_reward[$i-1]->tanggal) && isset($_GET['group'])=='oke'){
-                    ?>
-                                <span class='history-tanggal'>
-                                    <?php echo $history_reward[$i]->tanggal;?>
-                                </span>
-                    <?php        }
-                    ?>
-                        <div class='card-hitory'>
-                            <div class='card-history-header'>
-                                <span><?php echo $history_reward[$i]->tanggal;?></span>
-                                <span><?php echo $history_reward[$i]->status;?></span>
-                            </div>
-                            <div class='card-history-body'>
-                                <span><?php echo $history_reward[$i]->hadiah;?></span>
-                                <span><?php echo $history_reward[$i]->poin;?> Poin</span>
-                                <span><?php echo $history_reward[$i]->totalKupon;?> Kupon</span>
-                            </div>
-                            <div class='card-history-footer'>
-                                <?php echo 'Rp. '.$history_reward[$i]->amount;?>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    ?>
+                    </table>
                 </div>
             </div> 
         </div>
