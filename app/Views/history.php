@@ -89,7 +89,7 @@ session_start()
                     </table> -->
                     <?php
                         for ($i=0; $i < count($history_reward);$i++) { 
-                            if(($i>=0 && $history_reward[$i]->tanggal !== $history_reward[$i-1]->tanggal) && isset($_GET['group'])=='oke'){
+                            if(($i==0 || ($i>0 && $history_reward[$i]->tanggal !== $history_reward[$i-1]->tanggal)) && isset($_GET['group'])=='oke'){
                     ?>
                                 <span class='history-tanggal'>
                                     <?php echo $history_reward[$i]->tanggal;?>
