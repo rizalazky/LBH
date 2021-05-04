@@ -98,7 +98,7 @@ session_start()
                     ?>
                         <div class='card-hitory'>
                             <div class='card-history-header'>
-                                <span><?php echo $history_reward[$i]->tanggal;?></span>
+                                <span><?php echo $history_reward[$i]->tanggal .' '. ($history_reward[$i]->nostruk ? ' | '.$history_reward[$i]->nostruk : '') ?></span>
                                 <span><?php echo $history_reward[$i]->status;?></span>
                             </div>
                             <div class='card-history-body'>

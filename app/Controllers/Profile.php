@@ -38,6 +38,8 @@ class Profile extends BaseController
         // );
         $idRec =session()->get('user_customer')->internalid;
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
+        // var_dump($getHistoryReward);
+        // die;
         $poin=0;
         $kupon=0;
         // var_dump($getHistoryReward);
@@ -87,7 +89,7 @@ class Profile extends BaseController
                 $tempfile = $file->getTempName(); 
 
                 $directoryUpload ='public/img/imgstruk/';
-                $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
+                $upload=$file->move($directoryUpload,$session->get('user_customer')->phone.'-'.$filename);
                 if($upload){      
                     // tanda 
                     $dt=array(
@@ -100,7 +102,7 @@ class Profile extends BaseController
                         "phone"=> $session->get('user_customer')->phone,
                         "loc_trx"=>"",
                         "item_reward"=>'',
-                        "id_customer"=>$session->get('customer')->internalid
+                        "id_customer"=>$session->get('user_customer')->internalid
                     );
                     $postToNS = $this->netsuite_models->postToNetsuite($dt);
                     $object=(array)json_decode($postToNS);

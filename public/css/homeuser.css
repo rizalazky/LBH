@@ -123,11 +123,13 @@ list-type-ulli {
 .container-historypage{
   /* background-color: #E7218C;
    */
-  /* background-image: url('../img/banner.jpeg');
-  background-size: contain; */
-  background-color: #f2c9c7;
+  background-image: url('../img/banner.jpeg');
+  background-size: cover;
+  /* background-color: #f2c9c7; */
   padding-top: 20px;
   min-height: 99vh;
+  height: 99vh;
+  overflow: scroll;
 }
 
 /* container history page ==> dibuat karena bertabrakan dengan bootstrap */
@@ -268,6 +270,7 @@ list-type-ulli {
   display: flex;
   flex-direction: row;
 }
+
 .poin-menu h4{
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
@@ -325,7 +328,7 @@ list-type-ulli {
 }
 
 .card-history-header{
-  background-color: white;
+  background-color: #f2c9c7;
   padding: 15px;
   border-radius: 5px 5px 0 0;
   display: flex;
@@ -341,7 +344,7 @@ list-type-ulli {
 }
 
 .card-history-footer{
-  background-color: white;
+  background-color: #f2c9c7;
   padding: 15px;
   border-radius: 0 0 5px 5px;
 }
