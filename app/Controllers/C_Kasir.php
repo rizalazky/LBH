@@ -197,15 +197,18 @@ class C_Kasir extends BaseController
                 
                 $idRec =session()->get('customer')->internalid;
                 $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
-              
+               
                 $poin=0;
                 $kupon=0;
                 if($getHistoryReward){
                     foreach ($getHistoryReward as $key) {
+                        $po=$key->poin;
                         if($key->status == "Earned"){
-                            $poin+= $key->poin;
-                            $kupon+= $key->totalKupon;
+                            $poin+= $po;
+                        }else if($key->status == "Burn"){
+                            $poin=$poin - $po;
                         }
+                        
                     }
                 }
                 $data['customerpoin'] = $poin;
