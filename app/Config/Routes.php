@@ -63,6 +63,7 @@ $routes->get('/kasir/pendaftaran', 'C_Kasir::pendaftaran',['filter' => 'auth']);
 $routes->post('/kasir/pendaftaran', 'C_Kasir::pendaftaran',['filter' => 'auth']);
 $routes->get('/kasir/inputstruk', 'C_Kasir::inputStruck',['filter' => 'auth']);
 $routes->post('/kasir/inputstruk', 'C_Kasir::inputStruck',['filter' => 'auth']);
+$routes->get('/kasir/redeem', 'C_Kasir::redeem',['filter' => 'auth']);
 $routes->get('/kasir/pilihhadiah', 'C_Kasir::pilihhadiah',['filter' => 'auth']);
 $routes->post('/kasir/pilihhadiah', 'C_Kasir::pilihhadiah',['filter' => 'auth']);
 $routes->get('/kasir/terimakasih', 'C_Kasir::terimakasih',['filter' => 'auth']);

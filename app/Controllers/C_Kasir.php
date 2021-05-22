@@ -110,7 +110,7 @@ class C_Kasir extends BaseController
             // die;
             $nostruk=$_POST['nostruk'];
             $tgltransaksi=explode("-",$_POST['tgltransaksi']);
-
+            
             $file = $this->request->getFile('fotostruk');
                      
             if ($file->getError())
@@ -154,7 +154,66 @@ class C_Kasir extends BaseController
                 }
             }
         }else{
+           
             return view('kasir/inputstruk',$data);
+        }
+    }
+
+    public function redeem(){
+        $session=session();
+        if(isset($_GET['id'])){
+            $poinCustomer=$_GET['poincust'];
+            $poinDibutuhkan=$_GET['poinitem'];
+            $id=$_GET['id'];
+            $tgltransaksi=date('m/d/Y');
+            
+            if($poinCustomer > $poinDibutuhkan){
+                $dt=array(
+                    "type"=> "burn_loyalty",
+                    "tgl_transaksi"=>$tgltransaksi,
+                    "amount_trx"=> 0,
+                    "no_struk"=>'',
+                    "estimasi_point"=> "",
+                    "loc_trx"=>$session->get('user')->location,
+                    "item_reward"=>$id,
+                    "id_customer"=>$session->get('customer')->internalid,
+                    "poin"=>$poinDibutuhkan
+                );
+                
+                $postToNS = $this->netsuite_models->postToNetsuite($dt);
+                $object=(array)json_decode($postToNS);
+                
+                if($object['status'] =='succes'){
+                    echo "<script>alert('redeem Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+                }else{
+                    var_dump($postToNS);
+                    die;
+                }
+            }else{
+                echo "<script>alert('Maaf,Poin Customer Tidak Cukup');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+            }
+        }else{
+            $getAllHadiah = $this->netsuite_models->getAllHadiah();
+                
+                $idRec =session()->get('customer')->internalid;
+                $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
+              
+                $poin=0;
+                $kupon=0;
+                if($getHistoryReward){
+                    foreach ($getHistoryReward as $key) {
+                        if($key->status == "Earned"){
+                            $poin+= $key->poin;
+                            $kupon+= $key->totalKupon;
+                        }
+                    }
+                }
+                $data['customerpoin'] = $poin;
+                // var_dump($data['customer']);
+                // die;
+                $data['daftar_hadiah']=(array) $getAllHadiah;
+                // die(var_dump($data['daftar_hadiah']));
+                return view('kasir/redeem',$data);
         }
     }
 
