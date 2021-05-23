@@ -183,7 +183,7 @@ class C_Kasir extends BaseController
                 $postToNS = $this->netsuite_models->postToNetsuite($dt);
                 $object=(array)json_decode($postToNS);
                 
-                if($object['status'] =='succes'){
+                if($object && $object['status'] =='succes'){
                     echo "<script>alert('redeem Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
                 }else{
                     var_dump($postToNS);
@@ -275,7 +275,7 @@ class C_Kasir extends BaseController
         // $session=session();
         // $data['earn_loyalty']=$session->get('earn_loyalty');
         // die(var_dump($data));
-        return view('kasir/terimakasih',$data);
+        return view('kasir/terimakasih');
     }
     
 }

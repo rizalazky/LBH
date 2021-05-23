@@ -501,8 +501,28 @@ input[type="checkbox"]:not(old):checked + label > span:before {
   text-decoration: none;
   font-weight: 700;
   font-size: 14px;
-  
 }
+
+.btn-redeem{
+  /* z-index:99; */
+  position: absolute;
+  right: 100px;
+  top: 20px;
+  background-color: #E7218C;
+  color: white;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-redeem a{
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px; 
+}
+
 
 .alert{
   background-color: #f8d7da;

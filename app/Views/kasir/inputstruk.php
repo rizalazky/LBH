@@ -20,13 +20,8 @@
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <button class='btn-logout'><a href="<?php echo base_url()?>/kasir/logout">Logout</a></button>
-            <div class="navigate">
-                <ul>
-                    <li>
-                        <a href="<?php echo base_url()?>/kasir/redeem">Redeem</a>
-                    </li>
-                </ul>
-            </div>
+            <button class='btn-redeem'><a href="<?php echo base_url()?>/kasir/redeem">Redeem</a></button>
+            
             <div class="container">
                 <div class="signup-content">
                     <form action="<?php echo base_url()."/".$action?>" method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
