@@ -22,6 +22,7 @@ class C_Kasir extends BaseController
 	public function index()
 	{
         $session=session();
+        
         $session->remove('customer');
         $session->remove('hadiah');
         $session->remove('earn_loyalty');
@@ -166,8 +167,9 @@ class C_Kasir extends BaseController
             $poinDibutuhkan=$_GET['poinitem'];
             $id=$_GET['id'];
             $tgltransaksi=date('m/d/Y');
-            
-            if($poinCustomer > $poinDibutuhkan){
+            $sisaTotalPoin=$poinCustomer-$poinDibutuhkan;
+            if($sisaTotalPoin >= 0){
+                
                 $dt=array(
                     "type"=> "burn_loyalty",
                     "tgl_transaksi"=>$tgltransaksi,
@@ -177,7 +179,8 @@ class C_Kasir extends BaseController
                     "loc_trx"=>$session->get('user')->location,
                     "item_reward"=>$id,
                     "id_customer"=>$session->get('customer')->internalid,
-                    "poin"=>$poinDibutuhkan
+                    "poin"=>$poinDibutuhkan,
+                    "sisaTotalPoin"=>$sisaTotalPoin
                 );
                 
                 $postToNS = $this->netsuite_models->postToNetsuite($dt);
