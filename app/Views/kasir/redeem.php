@@ -40,7 +40,11 @@ session_start()
                 </div> -->
             </div>
             <div class="content">
-                <h1 id='poin'>POIN : <?php echo $customerpoin;?></h1>
+                <h1 id='poin' style="font-family: VAG Rounded;text-align: center;color: #4c9585;">
+                    <?php echo session()->get('customer')->companyname; ?>
+                    <br/>
+                    Poin : <?php echo $customerpoin;?>  
+                </h1>
                 <div class="container-daftar-hadiah">
                     <?php
                         for ($i=0; $i <count($daftar_hadiah) ; $i++) {

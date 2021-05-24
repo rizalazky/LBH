@@ -366,8 +366,12 @@ list-type-ulli {
     
   }
   #poin{
-   margin-top: 30px; 
+   margin-top: 30px;
+   font-family: "VAG Rounded";
+   text-align: center;
+   color: #4c9585; 
   }
+
 
   .navbar-menu{
     /* background-color: #4c9585; */
@@ -380,7 +384,7 @@ list-type-ulli {
     padding: 15px;
     opacity: 1;
     /* background-color: #4c9585; */
-    color: #4c9585;;
+    color: #4c9585;
     font-size: 15px;
     font-weight: 400;
     text-align: center;

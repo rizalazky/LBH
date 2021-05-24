@@ -212,8 +212,6 @@ class C_Kasir extends BaseController
                     }
                 }
                 $data['customerpoin'] = $poin;
-                // var_dump($data['customer']);
-                // die;
                 $data['daftar_hadiah']=(array) $getAllHadiah;
                 // die(var_dump($data['daftar_hadiah']));
                 return view('kasir/redeem',$data);
