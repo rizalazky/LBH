@@ -121,6 +121,7 @@ list-type-ulli {
 
 .daftar-hadiah-item{
   margin: 10px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   /* box-sizing: border-box; */

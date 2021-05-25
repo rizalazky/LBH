@@ -48,7 +48,7 @@ session_start()
                 <div class="container-daftar-hadiah">
                     <?php
                         for ($i=0; $i <count($daftar_hadiah) ; $i++) {
-                            if($daftar_hadiah[$i]->poindibutuhkan <= $customerpoin){
+                            if($daftar_hadiah[$i]->poindibutuhkan <= $customerpoin && $daftar_hadiah[$i]->qtyonhand >0){
                     ?>
                                 <a href="<?php echo base_url('/kasir/redeem?id='.$daftar_hadiah[$i]->id.'&poincust='.$customerpoin.'&poinitem='.$daftar_hadiah[$i]->poindibutuhkan);?>" class="daftar-hadiah-item">
                                     <div class='list-gambar'>
@@ -56,7 +56,11 @@ session_start()
                                     </div>
                                     <div class='desc'>
                                         <span class='title'><?php echo $daftar_hadiah[$i]->namahadiah?></span>
-                                        <span class='poin-ne'><?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin</span>
+                                        <span class='poin-ne'>
+                                            <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
+                                            <br/>
+                                            Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?> 
+                                        </span>
                                     </div>
                                 </a>
                     <?php
