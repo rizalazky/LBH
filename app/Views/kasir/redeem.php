@@ -50,19 +50,25 @@ session_start()
                         for ($i=0; $i <count($daftar_hadiah) ; $i++) {
                             if($daftar_hadiah[$i]->poindibutuhkan <= $customerpoin && $daftar_hadiah[$i]->qtyonhand >0){
                     ?>
-                                <a href="<?php echo base_url('/kasir/redeem?id='.$daftar_hadiah[$i]->id.'&poincust='.$customerpoin.'&poinitem='.$daftar_hadiah[$i]->poindibutuhkan);?>" class="daftar-hadiah-item">
-                                    <div class='list-gambar'>
-                                        <img src="<?php echo $daftar_hadiah[$i]->img?>" alt="">
-                                    </div>
-                                    <div class='desc'>
-                                        <span class='title'><?php echo $daftar_hadiah[$i]->namahadiah?></span>
-                                        <span class='poin-ne'>
-                                            <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
-                                            <br/>
-                                            Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?> 
-                                        </span>
-                                    </div>
-                                </a>
+                                <div onclick="confirmasi(this)"
+                                     data-iditem="<?php echo $daftar_hadiah[$i]->id?>"
+                                     data-namaitem="<?php echo $daftar_hadiah[$i]->namahadiah?>"
+                                     data-customerpoin="<?php echo $customerpoin;?>"
+                                     data-poindibutuhkan="<?php echo $daftar_hadiah[$i]->poindibutuhkan?>"
+                                     class="daftar-hadiah-item"
+                                     >
+                                        <div class='list-gambar'>
+                                            <img src="<?php echo $daftar_hadiah[$i]->img?>" alt="">
+                                        </div>
+                                        <div class='desc'>
+                                            <span class='title'><?php echo $daftar_hadiah[$i]->namahadiah?></span>
+                                            <span class='poin-ne'>
+                                                <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
+                                                <br/>
+                                                Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?> 
+                                            </span>
+                                        </div>
+                                </div>
                     <?php
                             } 
                         }
@@ -84,6 +90,22 @@ session_start()
             return false;
 
          return true;
+      }
+
+      function confirmasi(e){
+        console.log(e)
+        let idHadiah=e.dataset.iditem;
+        let poinDibutuhkan=e.dataset.poindibutuhkan;
+        let customerPoin=e.dataset.customerpoin;
+        let namaitem=e.dataset.namaitem;
+          let cek=confirm(`Yakin Memilih Item ${namaitem} (${poinDibutuhkan} Poin) ??`);
+          console.log(cek)
+          if(cek){
+            let url=`<?php echo base_url()?>/kasir/redeem?id=${idHadiah}&poincust=${customerPoin}&poinitem=${poinDibutuhkan}`;
+            window.location.href=url
+          }else{
+              alert('redeem dibatalkan');
+          }
       }
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
