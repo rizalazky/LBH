@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 // CodeIgniter\HTTP\Files\UploadedFile;
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
 use App\Models\NetsuiteModels;
 use Error;
 use PhpParser\Node\Stmt\Echo_;
@@ -160,16 +162,15 @@ class C_Kasir extends BaseController
         }
     }
 
-    public function redeem(){
+    public function redeempost(){
         $session=session();
-        if(isset($_GET['id'])){
-            $poinCustomer=$_GET['poincust'];
-            $poinDibutuhkan=$_GET['poinitem'];
-            $id=$_GET['id'];
+        $data=$this->request->getVar('data');
+        
             $tgltransaksi=date('m/d/Y');
-            $sisaTotalPoin=$poinCustomer-$poinDibutuhkan;
-            if($sisaTotalPoin >= 0){
-                
+            $fail=false;
+            for($i=0;$i<count($data);$i++){
+                $poinDibutuhkan=$data[$i]->poinitem;
+                $id=$data[$i]->id;
                 $dt=array(
                     "type"=> "burn_loyalty",
                     "tgl_transaksi"=>$tgltransaksi,
@@ -180,22 +181,39 @@ class C_Kasir extends BaseController
                     "item_reward"=>$id,
                     "id_customer"=>$session->get('customer')->internalid,
                     "poin"=>$poinDibutuhkan,
-                    "sisaTotalPoin"=>$sisaTotalPoin
                 );
                 
                 $postToNS = $this->netsuite_models->postToNetsuite($dt);
                 $object=(array)json_decode($postToNS);
                 
-                if($object && $object['status'] =='succes'){
-                    echo "<script>alert('redeem Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
-                }else{
-                    var_dump($postToNS);
-                    die;
+                if($object && $object['status'] != 'succes'){
+                    $fail=true;   
                 }
-            }else{
-                echo "<script>alert('Maaf,Poin Customer Tidak Cukup');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+                
             }
-        }else{
+            if($fail==true){
+                // echo "<script>alert('redeem Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+                $response=array(
+                    "status"=>"FAIL",
+                    "msg"=>"gagal upload ke netsuite"
+                );
+                echo json_encode($response);
+            }else{
+                $response=array(
+                    "status"=>"OKE",
+                    "msg"=>"Berhasil Upload Ke Netsuite"
+                );
+                echo json_encode($response);
+
+            }
+             
+   }
+
+
+    public function redeem(){
+        $session=session();
+        
+        
             $getAllHadiah = $this->netsuite_models->getAllHadiah();
                 
                 $idRec =session()->get('customer')->internalid;
@@ -214,11 +232,18 @@ class C_Kasir extends BaseController
                         
                     }
                 }
+                $getHadiahToArray=(array) $getAllHadiah;
+                // var_dump($getHadiahToArray);
+                // echo "<br />";
                 $data['customerpoin'] = $poin;
-                $data['daftar_hadiah']=(array) $getAllHadiah;
+                usort($getHadiahToArray,function($first,$second){
+                    return $first->poindibutuhkan < $second->poindibutuhkan;
+                });
+                $data['daftar_hadiah']=$getHadiahToArray;
+                // die(var_dump($getHadiahToArray));
                 // die(var_dump($data['daftar_hadiah']));
                 return view('kasir/redeem',$data);
-        }
+        
     }
 
     public function pilihhadiah(){

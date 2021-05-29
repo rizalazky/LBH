@@ -109,6 +109,85 @@ list-type-ulli {
   margin: 0;
 }
 
+
+.container{
+  /* background-color: #E7218C;
+   */
+   background-image: url('../img/banner.jpeg');
+   background-size: cover;
+  padding-top: 20px;
+  min-height: 99vh;
+}
+
+.header{
+  display: flex;
+  /* margin: 20px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-profile{
+  margin-right: 20px;
+  padding: 10px;    /* color: ; */
+  background-color:#db2082 ;
+  color: #FFFF;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  border-radius: 5px;
+  /* margin-bottom: 14px; */
+  font-family: "Frankfurter";
+
+}
+
+.navigation{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.navbar{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu{
+  /* background-color: #4c9585; */
+  /* opacity: 0.7; */
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.navbar-item{
+  padding: 15px;
+  opacity: 1;
+  /* background-color: #4c9585; */
+  color: #4c9585;;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "VAG Rounded";
+  /* text-decoration: none; */
+}
+
+
+.navbar-item:hover{
+  /* color: #4c9585; */
+  /* background-color: white; */
+}
+
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .container-daftar-hadiah{
   display: flex;
   flex-direction: row;
@@ -207,19 +286,58 @@ list-type-ulli {
   /* z-index: 99; */
 }
 
+#poin{
+  font-family: "VAG Rounded";
+  text-align: center;
+  color: #4c9585;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+#poin div{
+  background-color: #FFFF;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.poin-angka{
+  font-size: normal;
+  font-weight:bold ;
+}
+.poin-desc{
+  font-size: small;
+}
+.nama-customer{
+  font-size: x-large;
+  font-weight: bolder;
+}
+
 
 
 @media screen and (max-width: 768px) {
+
+
   .navigation{
     top: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
   }
-
+  .container-daftar-hadiah{
+    padding:60px 10px 0 10px !important;
+  }
   .daftar-hadiah-item{
-    width: 250px;
+    width: 45%;
   }
   .list-gambar{
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 200px;
   }
   
   .list-gambar img{
@@ -227,9 +345,67 @@ list-type-ulli {
     height: 100%;
     object-fit: contain;
   }
+
+  .desc .title{
+    font-family: "VAG Rounded";
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .desc .poin-ne{
+    font-family: "VAG Rounded";
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+  }
+
+  #poin{
+    font-family: "VAG Rounded";
+    text-align: center;
+    color: #4c9585;
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  #poin div{
+    background: none;
+    border-radius: 5px;
+    padding: 0;
+    margin-right: 10px;
+  }
+  .poin-angka{
+    font-size: normal;
+    font-weight:bold ;
+  }
+  .poin-desc{
+    font-size: small;
+  }
+  .nama-customer{
+    font-size: x-large;
+    font-weight: bolder;
+  }
+
+  #saveBtn{
+    width: 60px;
+    font-size: 15px;
+    font-weight: 500;
+  }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    /* padding-left: 10%;
+    padding-right: 10%; */
+  }
+
   .container-daftar-hadiah{
     display: flex;
     flex-direction: row;
@@ -245,11 +421,11 @@ list-type-ulli {
   }
 
   .daftar-hadiah-item{
-    width: 150px;
+    width: 180px;
   }
   .list-gambar{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
   
   .list-gambar img{
