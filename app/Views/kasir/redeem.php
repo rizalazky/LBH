@@ -28,6 +28,7 @@ session_start()
         <div class="header">
             <img class="logo" src="<?php echo base_url() ?>/public/img/logo.png" alt="">
             <div class="navigation">
+                <button class='btn-profile' onclick="showModalPoin()" style='text-decoration:none;'>Input Poin</button>
                 <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url('/kasir/inputstruk');?>">Input Struck</a>
                 <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url()?>/kasir/logout">Logout</a>
             </div>
@@ -104,6 +105,24 @@ session_start()
                     </div>
                 </div>
             </div> 
+        </div>
+    </div>
+    <div class="modal-input-poin">
+        <div class="modal-input-poin-header">
+            <span class='modal-header-text'>Input Poin</span>
+        </div>
+        <div class="modal-input-poin-body">
+            <form action="<?php echo base_url()?>/kasir/inputpoin" method="post">
+                <div class="form-control">
+                    <input type="number" name='poin'>
+                </div>
+        </div>
+        <div class="modal-input-poin-footer">
+                <div class="btn-form-container">
+                    <span class="btn-form" onclick="closeModal(this)">Cancel</span>
+                    <input class="btn-form" type="submit" value="Save">
+                </div>
+            </form>
         </div>
     </div>
     
@@ -218,6 +237,19 @@ session_start()
           }else{
             alert("Anda belum memilih item")
           }
+      }
+
+      function showModalPoin(){
+          const modalPoin=document.getElementsByClassName('modal-input-poin')[0]
+          console.log(modalPoin)
+          modalPoin.style.display='block'
+      }
+
+      function closeModal(){
+          
+          const modalPoin=document.getElementsByClassName('modal-input-poin')[0]
+          console.log(modalPoin)
+          modalPoin.style.display='none'
       }
     </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

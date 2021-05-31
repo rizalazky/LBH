@@ -172,7 +172,7 @@ class C_Kasir extends BaseController
                 $poinDibutuhkan=$data[$i]->poinitem;
                 $id=$data[$i]->id;
                 $dt=array(
-                    "type"=> "burn_loyalty",
+                    "type"=> "post_loyalty",
                     "tgl_transaksi"=>$tgltransaksi,
                     "amount_trx"=> 0,
                     "no_struk"=>'',
@@ -181,7 +181,8 @@ class C_Kasir extends BaseController
                     "item_reward"=>$id,
                     "id_customer"=>$session->get('customer')->internalid,
                     "poin"=>$poinDibutuhkan,
-                );
+                    "status"=>3
+                 );
                 
                 $postToNS = $this->netsuite_models->postToNetsuite($dt);
                 $object=(array)json_decode($postToNS);
@@ -205,9 +206,40 @@ class C_Kasir extends BaseController
                 );
                 echo json_encode($response);
 
-            }
-             
+            }      
    }
+
+   public function inputpoin(){
+    $session=session();
+    $poin=$this->request->getVar('poin');
+    
+        $tgltransaksi=date('m/d/Y');
+        $fail=false;
+        $poinDibutuhkan=$data[$i]->poinitem;
+        $dt=array(
+            "type"=> "post_loyalty",
+            "tgl_transaksi"=>$tgltransaksi,
+            "amount_trx"=> 0,
+            "no_struk"=>'',
+            "estimasi_point"=> "",
+            "loc_trx"=>$session->get('user')->location,
+            "item_reward"=>"",
+            "id_customer"=>$session->get('customer')->internalid,
+            "poin"=>$poin,
+            "status"=>2
+        );
+        
+        $postToNS = $this->netsuite_models->postToNetsuite($dt);
+        $object=(array)json_decode($postToNS);
+        
+        if($object && $object['status'] == 'succes'){
+            echo "<script>alert('Input Poin Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+        }else{
+            die("Error".$postToNS);
+           
+
+        }      
+}
 
 
     public function redeem(){

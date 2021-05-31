@@ -212,6 +212,7 @@ list-type-ulli {
   text-decoration: none;
   color: black;
   position: relative;
+  background-color: #f7f7f9;
 }
 
 .list-gambar{
@@ -226,7 +227,7 @@ list-type-ulli {
 }
 
 .desc{
-  background-color: #f7f7f9;
+  /* background-color: #f7f7f9; */
   /* height: 100%; */
   /* border-top: 1px solid rgba(0, 0, 0, 0.25); */
   padding: 10px;
@@ -313,9 +314,62 @@ list-type-ulli {
   font-weight: bolder;
 }
 
+.modal-input-poin{
+  position: fixed;
+  top: 25%;
+  margin-left: 50%;
+  display: none;
+  padding: 10px;
+  background-color:#f2c9c7;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.modal-input-poin div{
+  margin-top: 10px;
+}
+
+.modal-input-header{
+
+}
+
+.modal-header-text{
+  color: #db2082;
+  font-family: "VAG Rounded";
+}
+.form-control label{
+  color: #db2082;
+  font-family: "VAG Rounded";
+}
+
+.form-control input{
+  outline: none;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 14px;
+  border: none;
+}
+
+.btn-form-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-form{
+  padding: 5px;
+  background-color: #FFFF;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  color: #db2082;
+  border: none;
+  border-radius: 5px;
+  font-family: "VAG Rounded";
+}
 
 
-@media screen and (max-width: 768px) {
+
+/* @media screen and (max-width: 768px) {
 
 
   .navigation{
@@ -330,14 +384,14 @@ list-type-ulli {
     
   }
   .container-daftar-hadiah{
-    padding:60px 10px 0 10px !important;
+    padding:60px 0 0 0 !important;
   }
   .daftar-hadiah-item{
-    width: 45%;
+    width: 100px;
   }
   .list-gambar{
     width: 100%;
-    height: 200px;
+    height: 100px;
   }
   
   .list-gambar img{
@@ -348,14 +402,14 @@ list-type-ulli {
 
   .desc .title{
     font-family: "VAG Rounded";
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
     display: block;
   }
   
   .desc .poin-ne{
     font-family: "VAG Rounded";
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 500;
     display: block;
   }
@@ -392,9 +446,27 @@ list-type-ulli {
     font-size: 15px;
     font-weight: 500;
   }
-}
+} */
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 768px) {
+  .navigation{
+    top: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+
+  .modal-input-poin{
+    
+    margin-left: 25%;
+    /* display: none; */
+   
+  }
 
   .content{
     display: flex;
@@ -413,19 +485,32 @@ list-type-ulli {
     flex-wrap: wrap;
     align-items: left;
     width: 100%;
-    padding: 10px;
+    padding:60px 0 0 0 !important;
   }
 
-  .navigation{
-    top: 150px;
-  }
 
   .daftar-hadiah-item{
-    width: 180px;
+    width: 80px;
+    /* height: 100px; */
   }
   .list-gambar{
-    width: 180px;
-    height: 180px;
+    width: 80px;
+    height: 80px;
+
+  }
+
+  .desc .title{
+    font-family: "VAG Rounded";
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .desc .poin-ne{
+    font-family: "VAG Rounded";
+    font-size: 10px;
+    font-weight: 500;
+    display: block;
   }
   
   .list-gambar img{
