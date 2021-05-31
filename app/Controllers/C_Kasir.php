@@ -215,7 +215,6 @@ class C_Kasir extends BaseController
     
         $tgltransaksi=date('m/d/Y');
         $fail=false;
-        $poinDibutuhkan=$data[$i]->poinitem;
         $dt=array(
             "type"=> "post_loyalty",
             "tgl_transaksi"=>$tgltransaksi,
