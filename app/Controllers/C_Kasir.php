@@ -232,11 +232,9 @@ class C_Kasir extends BaseController
         $object=(array)json_decode($postToNS);
         
         if($object && $object['status'] == 'succes'){
-            echo "<script>alert('Input Poin Berhasil Sipp !!');window.location.href='".base_url()."/kasir/redeem'</script>"; 
+            echo "<script>alert('Input Poin ".$session->get('customer')->companyname."Sebesar ".$poin." poin berhasil!;window.location.href='".base_url()."/kasir/redeem'</script>"; 
         }else{
             die("Error".$postToNS);
-           
-
         }      
 }
 
