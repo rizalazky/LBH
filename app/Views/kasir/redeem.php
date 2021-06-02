@@ -125,6 +125,9 @@ session_start()
             </form>
         </div>
     </div>
+    <div class="loading">
+        Loading...
+    </div>
     
     <!-- JS -->
     <script src="<?php echo base_url() ?>/public/js/jquery.min.js"></script>
@@ -137,7 +140,7 @@ session_start()
         const lastPoinText=document.getElementById('lastPoinText');
         let poinTemp=0;
         let dataTerpilih=[];
-
+        const loadingEl=document.getElementsByClassName('loading')
         function isNumberKey(evt)
       {
          var charCode = (evt.which) ? evt.which : event.keyCode
@@ -202,9 +205,12 @@ session_start()
       }
 
       async function save(){
+          const btnSave=document.getElementById('saveBtn')
           if(dataTerpilih.length > 0){
             let url=`<?php echo base_url()?>/kasir/redeempost`;
+            loadingEl[0].style.display='flex';
             
+            btnSave.setAttribute("disabled", "");
             let postData={
                 data:dataTerpilih
             }
@@ -231,6 +237,8 @@ session_start()
                 }else{
                     alert("Gagal");
                 }
+                loadingEl[0].style.display='none';
+                btnSave.removeAttribute("disabled", "");
             }).catch(err=>{
                 console.log(err)
             })
