@@ -383,7 +383,7 @@ list-type-ulli {
 }
 
 .container-inp-qty{
-  display: block;
+  display: none;
   width: 100%;
 }
 
