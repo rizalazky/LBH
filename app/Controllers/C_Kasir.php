@@ -169,8 +169,10 @@ class C_Kasir extends BaseController
             $tgltransaksi=date('m/d/Y');
             $fail=false;
             for($i=0;$i<count($data);$i++){
-                $poinDibutuhkan=$data[$i]->poinitem;
+                $qty=$data[$i]->qty;
+                $poinDibutuhkan=$data[$i]->poinitem * $qty;
                 $id=$data[$i]->id;
+
                 $dt=array(
                     "type"=> "post_loyalty",
                     "tgl_transaksi"=>$tgltransaksi,
@@ -181,7 +183,8 @@ class C_Kasir extends BaseController
                     "item_reward"=>$id,
                     "id_customer"=>$session->get('customer')->internalid,
                     "poin"=>$poinDibutuhkan,
-                    "status"=>3
+                    "status"=>3,
+                    "qty"=>$qty
                  );
                 
                 $postToNS = $this->netsuite_models->postToNetsuite($dt);

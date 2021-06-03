@@ -69,7 +69,21 @@ session_start()
                                             <span class='poin-ne'>
                                                 <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
                                                 <br/>
-                                                Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?> 
+                                                Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?>
+                                                <br/>
+                                                <div class="container-inp-qty" id="container-inp-qty-<?php echo $daftar_hadiah[$i]->id?>">
+                                                    <label for="qtyitem">Qty</label>
+                                                    <!-- <br/> -->
+                                                    <input type="number" 
+                                                        name="qtyitem"
+                                                        class='inp-qty' 
+                                                        id="qtyitem-<?php echo $daftar_hadiah[$i]->id?>" 
+                                                        data-iditem="<?php echo $daftar_hadiah[$i]->id?>"
+                                                        data-namaitem="<?php echo $daftar_hadiah[$i]->namahadiah?>"
+                                                        data-poindibutuhkan="<?php echo $daftar_hadiah[$i]->poindibutuhkan?>"
+                                                        oninput="inpQtyOnChange(this)"
+                                                        value="1"> 
+                                                </div>
                                             </span>
                                         </div>
                                 </div>
@@ -166,6 +180,48 @@ session_start()
           }
       }
 
+      function inpQtyOnChange(e){
+        let checked=e.dataset.checked;
+        let idHadiah=e.dataset.iditem;
+        let poinDibutuhkan=e.dataset.poindibutuhkan;
+        let namaitem=e.dataset.namaitem;
+        
+        let qty=document.getElementById('qtyitem-'+idHadiah).value !== "" ?document.getElementById('qtyitem-'+idHadiah).value :0;
+        console.log(qty)
+        console.log(qty)
+        for (let index = 0; index < dataTerpilih.length; index++) {
+                const dt = dataTerpilih[index];
+                if(dt.id === idHadiah){
+                    dt.qty=Number(qty)
+                }
+        }
+        
+        let updatePoinVar=updatePoin();
+        if(!updatePoinVar){
+            document.getElementById('qtyitem-'+idHadiah).value =0
+            inpQtyOnChange(e)//dipanggil lagi karena utk menghitung nilai 0
+        }
+      }
+
+      function updatePoin(){
+          console.log(dataTerpilih)
+          lastPoinCustomer=lastPoinText.innerText;
+            poinRedeem=0;
+            for (let index = 0; index < dataTerpilih.length; index++) {
+                const dt = dataTerpilih[index];
+                poinRedeem+=(Number(dt.qty)*Number(dt.poinitem))
+            }
+            let sisaPoin=Number(lastPoinCustomer)-Number(poinRedeem);
+            if(sisaPoin>= 0){
+                poin.innerText= sisaPoin
+                poinRedeemText.innerText=poinRedeem
+                return true
+            }else{
+                alert("Poin Tidak Cukup")
+                return false
+            }
+      }
+
       function choosed(e){
           
         let checked=e.dataset.checked;
@@ -180,11 +236,13 @@ session_start()
                 dataTerpilih.push({
                     id:idHadiah,
                     nama:namaitem,
-                    poinitem:poinDibutuhkan
+                    poinitem:poinDibutuhkan,
+                    qty:1
                 });
                 e.dataset.checked ="true";
                 // poinTemp=Number(poinTemp) + Number(poinDibutuhkan);
-                poin.innerText=Number(poin.innerText) - Number(poinDibutuhkan)
+                // poin.innerText=Number(poin.innerText) - Number(poinDibutuhkan)
+                document.getElementById("container-inp-qty-"+idHadiah).style.display='block';
             }else{
                 alert('Poin anda tidak cukup untuk menambah item ini');
                 document.getElementById(idHadiah).checked=false;
@@ -195,12 +253,14 @@ session_start()
                 const dt = dataTerpilih[index];
                 if(dt.id === idHadiah){
                     dataTerpilih.splice(index,1);
-                    poin.innerText=Number(poin.innerText) + Number(poinDibutuhkan)
+                    // poin.innerText=Number(poin.innerText) + Number(poinDibutuhkan)
+                    document.getElementById("container-inp-qty-"+idHadiah).style.display='none';
                 }
             }
             // poinTemp=Number(poinTemp) - Number(poinDibutuhkan);
         }
-        poinRedeemText.innerText=Number(lastPoinText.innerText) - Number(poin.innerText)
+        updatePoin();
+        // poinRedeemText.innerText=Number(lastPoinText.innerText) - Number(poin.innerText)
         
       }
 
