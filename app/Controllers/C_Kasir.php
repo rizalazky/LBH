@@ -66,8 +66,8 @@ class C_Kasir extends BaseController
                 ); 
                 $postTo = $this->netsuite_models->postToNetsuite($data);
                 $balikan=json_decode($postTo);
-                // var_dump($balikan);
-                // die;
+                var_dump($balikan);
+                die;
                 if($balikan->status =='succes'){
                     $dataSess=array(
                         "companyname"=>$namalengkap,

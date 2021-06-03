@@ -25,7 +25,6 @@
                 <div class="signup-content" style='text-align:center;'>
                 <h1 style='text-align:left;'>
                     <?php
-                    echo $test;
                     // <?php echo $customer->companyname? $customer->companyname: $customer->phone;
                         $name=$_SESSION['customer']->companyname;
                         $phone=$_SESSION['customer']->phone;
