@@ -63,6 +63,15 @@
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Submit" />
                         </div>
                     </form>
+                    <?php if($_SESSION['poinhis']){?>
+                    <div class="form-group">
+                            <button type="button" class="form-submit">
+                            <a style="color:white;text-decoration:none;" href="<?php echo base_url('/kasir/terimakasih')?>">
+                                Next
+                            </a>
+                            </button>
+                        </div>
+                        <?php } ?>
                     <!-- <p class="loginhere">
                         Have already an account ? <a href="#" class="loginhere-link">Login here</a>
                     </p> -->
