@@ -26,31 +26,42 @@
                 <h1 style='text-align:left;'>
                     <?php
                     // <?php echo $customer->companyname? $customer->companyname: $customer->phone;
+                        // $name=$_SESSION['customer']->companyname;
+                        // $phone=$_SESSION['customer']->phone;
+                        // $kupon=$_SESSION['earn_loyalti']->coupon;
+                        // $poin=$_SESSION['poinhis']->poin;
                         $name=$_SESSION['customer']->companyname;
                         $phone=$_SESSION['customer']->phone;
-                        $kupon=$_SESSION['earn_loyalty']->coupon;
-                        $poin=$_SESSION['earn_loyalty']->poin;
+                        $kupon=$_SESSION['earn_loyalti']->coupon;
+                        $poin=0;
+                        if($_SESSION['poinhis']){
+                            for($j=0;$j<count($_SESSION['poinhis']);$j++){
+                                $poin += $_SESSION['poinhis'][$j]['poin'];
+                            }
+                        }
+                        ;
                     ?>
                     Selamat <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $name ? $name : $phone;?></strong></span>, Anda telah mendapatkan:
                 </h1>
                 
-                <br>
+                
                 <h1 style='text-align:left;'>
                     <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $poin;?> Poin</strong></span> Keluarga Lavie
                 </h1>
-                <h1 style='text-align:left;'>
+                <!-- <h1 style='text-align:left;'>
                     <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $kupon;?> Kupon</strong></span> undian kejutan THR
-                </h1>
+                </h1> -->
                 <?php if(isset($_SESSION['hadiah'])){ ?>
                     <h1 style='text-align:left;'>
                         <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $_SESSION['hadiah']->reward_list;?></strong></span> hadiah silaturahmi Rezeki Ramadhan
                     </h>
                 <?php } ?>
                 
-                <br>
-                <br>
+                
                 <h1 style='text-align:left;'>
                     Sampai ketemu di kunjungan berikutnya
+                    <br>
+                    jangan lupa kumpulkan poin untuk ditukar hadiah menarik
                 </h1>
                 <br>
                 <div class="form-group">

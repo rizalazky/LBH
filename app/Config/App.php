@@ -26,9 +26,9 @@ class App extends BaseConfig
 	// public $baseURL = 'http://localhost/LBH/';
 	// public $baseURL = 'http://34.126.111.97/';
 	// production
-	// public $baseURL = 'https://laviebaby.herokuapp.com/';
+	public $baseURL = 'https://laviebaby.herokuapp.com/';
 	// deployment2
-	public $baseURL = 'https://laviebaby2.herokuapp.com/';
+	// public $baseURL = 'https://laviebaby2.herokuapp.com/';
 
 	/**
 	 * --------------------------------------------------------------------------
