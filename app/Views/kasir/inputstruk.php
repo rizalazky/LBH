@@ -63,7 +63,7 @@
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Submit" />
                         </div>
                     </form>
-                    <?php if($_SESSION['poinhis']){?>
+                    <?php if(isset($_SESSION['poinhis'])){?>
                     <div class="form-group">
                             <button type="button" class="form-submit">
                             <a style="color:white;text-decoration:none;" href="<?php echo base_url('/kasir/terimakasih')?>">
