@@ -32,7 +32,7 @@
                         // $poin=$_SESSION['poinhis']->poin;
                         $name=$_SESSION['customer']->companyname;
                         $phone=$_SESSION['customer']->phone;
-                        $kupon=$_SESSION['earn_loyalti']->coupon;
+                        $kupon=isset($_SESSION['earn_loyalti']->coupon) ? $_SESSION['earn_loyalti']->coupon : '';
                         $poin=0;
                         if($_SESSION['poinhis']){
                             for($j=0;$j<count($_SESSION['poinhis']);$j++){
