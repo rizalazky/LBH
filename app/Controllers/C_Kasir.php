@@ -122,11 +122,23 @@ class C_Kasir extends BaseController
             {
                 echo "<script>alert('".$file->getErrorString()."');window.location.href='".base_url()."/kasir/inputstruk'</script>"; 
             }else{
+                // $imgPath = $this->request->getFile('file');
+                // die(FCPATH .'public/img/imgstruk/');
+                // Image manipulation
                 $filename = $file->getName();
+                $upload = \Config\Services::image()
+                    ->withFile($file)
+                    ->resize(1200, 900, false, 'auto')
+                    ->save('public/img/imgstruk/'. $session->get('customer')->phone.'-'.$filename);
+                
+                // $imgPath->move(WRITEPATH . 'uploads');
+                // die(WRITEPATH);
+                
                 $tempfile = $file->getTempName(); 
 
                 $directoryUpload ='public/img/imgstruk/';
-                $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
+                // $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
+                // $upload=$file->move($directoryUpload,$session->get('customer')->phone.'-'.$filename);
                 if($upload){      
                     // tanda 
                     $dt=array(
