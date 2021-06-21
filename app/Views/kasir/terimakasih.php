@@ -68,6 +68,11 @@
                     <button type="submit" id="submit" class="form-submit" value="Submit">
                         <a style="text-decoration:none;color:white;" href="<?php echo base_url('/kasir/caripelanggan')?>">Kembali Cari Pelanggan</a>
                     </button>
+                    <br/>
+                    <br/>
+                    <button type="submit" class="form-submit" value="Submit">
+                        <a style="text-decoration:none;color:white;" href="<?php echo base_url('/kasir/inputstruk')?>">Ke Halaman Input Struk</a>
+                    </button>
                 </div>
                     <!-- <h1>Selamat! Poin dari belanjaan hari ini XYZ dan ABC kupon undian!</h1>
                     <h1>Terimakasih</h1> -->
