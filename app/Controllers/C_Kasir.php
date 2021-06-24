@@ -129,6 +129,7 @@ class C_Kasir extends BaseController
                 $upload = \Config\Services::image()
                     ->withFile($file)
                     ->resize(1200, 900, false, 'auto')
+                    ->rotate(270)
                     ->save('public/img/imgstruk/'. $session->get('customer')->phone.'-'.$filename);
                 
                 // $imgPath->move(WRITEPATH . 'uploads');
@@ -362,10 +363,36 @@ class C_Kasir extends BaseController
     }
 
     public function terimakasih(){
-        // $session=session();
-        // $data['earn_loyalty']=$session->get('earn_loyalty');
-        // die(var_dump($data));
-        return view('kasir/terimakasih');
+        $session=session();
+        
+        $getAllHadiah = $this->netsuite_models->getAllHadiah();
+                
+        $idRec =session()->get('customer')->internalid;
+        $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
+    //    var_dump($getHistoryReward);
+    //    die;
+        $poin=0;
+        $kupon=0;
+        if($getHistoryReward){
+            foreach ($getHistoryReward as $key) {
+                $po=$key->poin ? $key->poin :0;
+                if($key->status == "Earned"){
+                    $poin=$poin+$po;
+                }else if($key->status == "Burn"){
+                    $poin=$poin - $po;
+                }
+                
+            }
+        }
+        $getHadiahToArray=(array) $getAllHadiah;
+        
+        $data['customerpoin'] = $poin;
+        usort($getHadiahToArray,function($first,$second){
+            return $first->poindibutuhkan < $second->poindibutuhkan;
+        });
+        $data['daftar_hadiah']=$getHadiahToArray;
+        
+        return view('kasir/terimakasih',$data);
     }
     
 }

@@ -25,11 +25,6 @@
                 <div class="signup-content" style='text-align:center;'>
                 <h1 style='text-align:left;'>
                     <?php
-                    // <?php echo $customer->companyname? $customer->companyname: $customer->phone;
-                        // $name=$_SESSION['customer']->companyname;
-                        // $phone=$_SESSION['customer']->phone;
-                        // $kupon=$_SESSION['earn_loyalti']->coupon;
-                        // $poin=$_SESSION['poinhis']->poin;
                         $name=$_SESSION['customer']->companyname;
                         $phone=$_SESSION['customer']->phone;
                         $kupon=isset($_SESSION['earn_loyalti']->coupon) ? $_SESSION['earn_loyalti']->coupon : '';
@@ -39,7 +34,7 @@
                                 $poin += $_SESSION['poinhis'][$j]['poin'];
                             }
                         }
-                        ;
+                        
                     ?>
                     Selamat <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $name ? $name : $phone;?></strong></span>, Anda telah mendapatkan:
                 </h1>
@@ -47,6 +42,9 @@
                 
                 <h1 style='text-align:left;'>
                     <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $poin;?> Poin</strong></span> Keluarga Lavie
+                </h1>
+                <h1 style='text-align:left;'>
+                    Total Poin anda<span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'> <strong><?php echo $customerpoin;?> Poin</strong></span>
                 </h1>
                 <!-- <h1 style='text-align:left;'>
                     <span style='color:#db2082;font-size: 24px;font-family: "Frankfurter";'><strong><?php echo $kupon;?> Kupon</strong></span> undian kejutan THR
@@ -64,6 +62,23 @@
                     jangan lupa kumpulkan poin untuk ditukar hadiah menarik
                 </h1>
                 <br>
+                <div class="flex">
+                    <?php
+                        for ($i=0; $i < 5; $i++) { 
+                    ?>
+                    <div class="hadiah-container-terimakasih">
+                        <div class="img-container-hadiah-terimakasih">
+                            <img claas="img-hadiah-terimakasih" src="<?php echo $daftar_hadiah[$i]->img?>" alt="">
+                        </div>
+                        <div class="desc-hadiah-terimakasih">
+                            <span><?php echo $daftar_hadiah[$i]->namahadiah?></span>
+                            <span><?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin</span>
+                        </div>
+                    </div>
+                    <?php
+                        }
+                    ?>
+                </div>
                 <div class="form-group">
                     <button type="submit" id="submit" class="form-submit" value="Submit">
                         <a style="text-decoration:none;color:white;" href="<?php echo base_url('/kasir/caripelanggan')?>">Kembali Cari Pelanggan</a>
