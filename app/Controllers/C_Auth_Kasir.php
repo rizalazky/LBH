@@ -24,6 +24,7 @@ class C_Auth_Kasir extends BaseController
         $getAllLocation = $this->netsuite_models->getAllLocation();
         
         $data['dataLocation']=$getAllLocation;
+        // die(var_dump($data));
         // die(var_dump($getAllLocation));
         return view('kasir/login',$data);
     }

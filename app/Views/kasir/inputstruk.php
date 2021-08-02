@@ -57,11 +57,15 @@
                             <label for="nama">Tanggal Transaksi:</label>
                             <input type="date" class="form-input" name="tgltransaksi" id="tgltransaksi" placeholder="Masukkan tgl transaksi" />
                         </div>
-                        <br>
+                        <div class="form-group">
+                            <input type="checkbox" name="isdoublepoint" style='display:inline;' id="isdoublepoint">
+                            <label for="isdoublepoint">2x Point</label>
+                        </div>
                         <br>
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Submit" />
                         </div>
+                         
                     </form>
                     <?php if(isset($_SESSION['poinhis'])){?>
                     <div class="form-group">

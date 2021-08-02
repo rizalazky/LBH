@@ -115,6 +115,9 @@ class C_Kasir extends BaseController
             // die;
             $nostruk=$_POST['nostruk'];
             $tgltransaksi=explode("-",$_POST['tgltransaksi']);
+            $isDouble=$_POST['isdoublepoint'];
+
+            // die($isDouble == "on" ? "ON" :"OFF");
             
             $file = $this->request->getFile('fotostruk');
                      
@@ -152,7 +155,8 @@ class C_Kasir extends BaseController
                         "phone"=> $session->get('customer')->phone,
                         "loc_trx"=>$session->get('user')->location,
                         "item_reward"=>'',
-                        "id_customer"=>$session->get('customer')->internalid
+                        "id_customer"=>$session->get('customer')->internalid,
+                        "is_double_point"=>$isDouble == "on" ? true : false
                     );
                     // die(var_dump($dt));
                     // 14 june 2021
