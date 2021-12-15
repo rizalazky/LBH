@@ -370,7 +370,7 @@ class C_Kasir extends BaseController
     public function terimakasih(){
         $session=session();
         
-        $getAllHadiah = $this->netsuite_models->getAllHadiah();
+        $getAllHadiah = $this->netsuite_models->getAllHadiah("13");
                 
         $idRec =session()->get('customer')->internalid;
         $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
