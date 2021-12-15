@@ -52,8 +52,8 @@ class NetsuiteModels extends Model
         return getPromo();
     }
 
-    public function getAllHadiah(){
-        return getAllHadiah();
+    public function getAllHadiah($location){
+        return getAllHadiah($location);
     }
 
 

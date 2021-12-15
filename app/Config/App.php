@@ -23,8 +23,8 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	// public $baseURL = 'http://localhost/LBH/';
-	public $baseURL = 'http://34.126.111.97/';
+	public $baseURL = 'http://localhost/LBH/';
+	// public $baseURL = 'http://34.126.111.97/';
 	// production
 	// public $baseURL = 'https://laviebaby.herokuapp.com/';
 	// deployment2

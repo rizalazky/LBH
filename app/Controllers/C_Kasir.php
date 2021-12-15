@@ -279,11 +279,12 @@ class C_Kasir extends BaseController
 
 
     public function redeem(){
-        $session=session();
-        
-        
-            $getAllHadiah = $this->netsuite_models->getAllHadiah();
-                
+            $session=session();
+
+            $location=$session->get('user')->location;
+            
+            $getAllHadiah = $this->netsuite_models->getAllHadiah($location);
+                // die(var_dump($getAllHadiah));
                 $idRec =session()->get('customer')->internalid;
                 $getHistoryReward = $this->netsuite_models->getHistoryReward($idRec);
             //    var_dump($getHistoryReward);
@@ -292,7 +293,7 @@ class C_Kasir extends BaseController
                 $kupon=0;
                 if($getHistoryReward){
                     foreach ($getHistoryReward as $key) {
-                        $po=$key->poin;
+                        $po=$key->poin > 0 ? $key->poin : 0;
                         if($key->status == "Earned"){
                             $poin+= $po;
                         }else if($key->status == "Burn"){

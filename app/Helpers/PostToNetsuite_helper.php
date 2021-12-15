@@ -232,7 +232,8 @@ function getPromo(){
   return json_decode($response);        
 }
 
-function getAllHadiah(){
+function getAllHadiah($location){
+  
   $oauth_nonce = md5(mt_rand());
   $oauth_timestamp = time();
   $oauth_signature_method = 'HMAC-SHA256';
@@ -242,6 +243,7 @@ function getAllHadiah(){
       "GET&" . urlencode(NETSUITE_URL) ."&".
       urlencode(
           "deploy=" . NETSUITE_DEPLOY_ID
+              . "&location_req=".$location
               . "&oauth_consumer_key=" . NETSUITE_CONSUMER_KEY
               . "&oauth_nonce=" . $oauth_nonce
               . "&oauth_signature_method=" . $oauth_signature_method
@@ -266,7 +268,7 @@ function getAllHadiah(){
 
   $curl = curl_init();
   curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://7131410.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=11&deploy=2&record_type=get_hadiah',
+    CURLOPT_URL => 'https://7131410.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=11&deploy=2&location_req='.$location.'&record_type=get_hadiah',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,

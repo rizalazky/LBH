@@ -44,8 +44,8 @@ class Profile extends BaseController
         $kupon=0;
         // var_dump($getHistoryReward);
         foreach ($getHistoryReward as $key) {
-            $poin+= $key->poin;
-            $kupon+= $key->totalKupon;
+            $poin+= $key->poin > 0 ? $key->poin : 0 ;
+            $kupon+= $key->totalKupon >0 ? $key->totalKupon : 0;
         }
         $data['poin']=$poin;
         $data['kupon']=$kupon;
