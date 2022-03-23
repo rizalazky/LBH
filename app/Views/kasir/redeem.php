@@ -28,7 +28,9 @@ session_start()
         <div class="header">
             <img class="logo" src="<?php echo base_url() ?>/public/img/logo.png" alt="">
             <div class="navigation">
+            <?php if($_SESSION['user']->location != '21'){ ?>
                 <button class='btn-profile' onclick="showModalPoin()" style='text-decoration:none;'>Input Poin</button>
+            <?php } ?>
                 <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url('/kasir/inputstruk');?>">Input Struck</a>
                 <a class='btn-profile' style='text-decoration:none;' href="<?php echo base_url()?>/kasir/logout">Logout</a>
             </div>
@@ -42,11 +44,10 @@ session_start()
                 </div> -->
             </div>
             <div class="content">
-                
                 <div class="container-daftar-hadiah">
                     <?php
                         for ($i=0; $i <count($daftar_hadiah) ; $i++) {
-                            if($daftar_hadiah[$i]->poindibutuhkan <= $customerpoin && $daftar_hadiah[$i]->qtyonhand >0){
+                            if(($daftar_hadiah[$i]->poindibutuhkan <= $customerpoin && $daftar_hadiah[$i]->qtyonhand >0) || $_SESSION['user']->location == '21'){ // location Penukaran HUT
                     ?>
                                 <div 
                                      data-iditem="<?php echo $daftar_hadiah[$i]->id?>"
@@ -67,8 +68,10 @@ session_start()
                                         <div class='desc'>
                                             <span class='title'><?php echo $daftar_hadiah[$i]->namahadiah?></span>
                                             <span class='poin-ne'>
-                                                <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
-                                                <br/>
+                                                <?php if($_SESSION['user']->location !== '21'){ ?>
+                                                    <?php echo $daftar_hadiah[$i]->poindibutuhkan?> Poin
+                                                    <br/>
+                                                <?php } ?>
                                                 Stock : <?php echo $daftar_hadiah[$i]->qtyonhand;?>
                                                 <br/>
                                                 <div class="container-inp-qty" id="container-inp-qty-<?php echo $daftar_hadiah[$i]->id?>">
@@ -97,23 +100,43 @@ session_start()
                             <div class='nama-customer'>
                                 <?php echo session()->get('customer')->companyname; ?>
                             </div>
-                            <div>
-                                 <span id='lastPoinText' class='poin-angka'><?php echo $customerpoin;?> </span>
-                                 <br>
-                                 <span  class='poin-desc'>
-                                    Last Poin
-                                 </span>
-                            </div>
-                            <div>
-                                <span id='poinRedeemText' class='poin-angka'>0</span>
-                                <br>
-                                <span class='poin-desc'>Poin Redeem </span>
-                            </div>
-                            <div>
-                                <span id='poinText' class='poin-angka'><?php echo $customerpoin;?> </span>
-                                <br>
-                                <span class='poin-desc'>Sisa Poin</span> 
-                            </div>
+                            <?php if($_SESSION['user']->location == '21'){ ?>
+                                <div style='display:none;'>
+                                    <span id='lastPoinText' class='poin-angka'><?php echo $customerpoin;?> </span>
+                                    <br>
+                                    <span  class='poin-desc'>
+                                        Last Poin
+                                    </span>
+                                </div>
+                                <div style='display:none;'>
+                                    <span id='poinRedeemText' class='poin-angka'>0</span>
+                                    <br>
+                                    <span class='poin-desc'>Poin Redeem </span>
+                                </div>
+                                <div style='display:none;'>
+                                    <span id='poinText' class='poin-angka'><?php echo $customerpoin;?> </span>
+                                    <br>
+                                    <span class='poin-desc'>Sisa Poin</span> 
+                                </div>
+                                <?php }else{ ?>
+                                    <div>
+                                        <span id='lastPoinText' class='poin-angka'><?php echo $customerpoin;?> </span>
+                                        <br>
+                                        <span  class='poin-desc'>
+                                            Last Poin
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span id='poinRedeemText' class='poin-angka'>0</span>
+                                        <br>
+                                        <span class='poin-desc'>Poin Redeem </span>
+                                    </div>
+                                    <div>
+                                        <span id='poinText' class='poin-angka'><?php echo $customerpoin;?> </span>
+                                        <br>
+                                        <span class='poin-desc'>Sisa Poin</span> 
+                                    </div>
+                                <?php } ?>
                         </div>
                         <button type="button" id="saveBtn" onclick="save()">Save</button>
                     </div>
@@ -156,13 +179,13 @@ session_start()
         let dataTerpilih=[];
         const loadingEl=document.getElementsByClassName('loading')
         function isNumberKey(evt)
-      {
-         var charCode = (evt.which) ? evt.which : event.keyCode
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
 
-         return true;
-      }
+            return true;
+        }
 
       function confirmasi(e){
         
